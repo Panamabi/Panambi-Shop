@@ -18,45 +18,45 @@
         }
 
         header {
-            border-bottom: 1px solid #E8E8E8;
-            padding: 2rem 2%;
+            background-color: #606043;
+            padding: 1.5rem 2%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
+            max-width: 100%;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .logo-gold {
-            color: #D4AF37;
+        .logo-img {
+            height: 50px;
+            object-fit: contain;
         }
 
         .cart-button {
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 24px;
+            font-size: 28px;
             position: relative;
+            color: #FFFFFF;
         }
 
         .cart-count {
             position: absolute;
-            top: -5px;
-            right: -8px;
+            top: -8px;
+            right: -12px;
             background-color: #D4AF37;
-            color: #FFFFFF;
+            color: #1A1A1A;
             font-size: 0.75rem;
             font-weight: bold;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -92,39 +92,74 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
         }
 
         .product-card {
             border: 1px solid #E8E8E8;
-            padding: 2rem 1.5rem;
-            text-align: center;
+            overflow: hidden;
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .product-card:hover {
-            border-color: #D4AF37;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+            border-color: #606043;
+            box-shadow: 0 4px 20px rgba(96, 96, 67, 0.15);
         }
 
-        .product-emoji {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background: #F5F5F0;
+        }
+
+        .product-content {
+            padding: 1.8rem;
         }
 
         .product-name {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #1A1A1A;
         }
 
         .product-description {
             color: #888780;
             font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .product-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
             margin-bottom: 1.5rem;
-            min-height: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #E8E8E8;
+        }
+
+        .spec {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .spec-label {
+            font-size: 0.8rem;
+            color: #888780;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .spec-value {
+            font-size: 1rem;
+            color: #1A1A1A;
+            font-weight: 500;
         }
 
         .product-footer {
@@ -135,24 +170,25 @@
         }
 
         .product-price {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #D4AF37;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #606043;
         }
 
         .add-btn {
             background: #1A1A1A;
             color: #FFFFFF;
             border: none;
-            padding: 0.8rem 1.2rem;
+            padding: 0.9rem 1.4rem;
             font-size: 0.9rem;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
             transition: background 0.3s;
+            flex: 1;
         }
 
         .add-btn:hover {
-            background: #D4AF37;
+            background: #606043;
         }
 
         footer {
@@ -203,11 +239,12 @@
         }
 
         .modal-header {
+            background-color: #606043;
+            color: #FFFFFF;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem;
-            border-bottom: 1px solid #E8E8E8;
         }
 
         .modal-header h2 {
@@ -220,6 +257,7 @@
             border: none;
             cursor: pointer;
             font-size: 24px;
+            color: #FFFFFF;
         }
 
         .modal-body {
@@ -248,7 +286,7 @@
         }
 
         .cart-item-name {
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
@@ -265,15 +303,17 @@
 
         .qty-btn {
             background: #F5F5F0;
-            border: none;
+            border: 1px solid #E8E8E8;
             cursor: pointer;
             padding: 0.4rem;
             font-size: 14px;
+            font-weight: bold;
         }
 
         .qty-display {
             width: 30px;
             text-align: center;
+            font-weight: 600;
         }
 
         .remove-btn {
@@ -282,6 +322,7 @@
             cursor: pointer;
             color: #888780;
             padding: 0.4rem;
+            font-size: 16px;
         }
 
         .modal-footer {
@@ -296,26 +337,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            font-weight: 700;
         }
 
         .total-price {
-            color: #D4AF37;
+            color: #606043;
         }
 
         .checkout-btn {
-            background-color: #1A1A1A;
+            background-color: #606043;
             color: #FFFFFF;
             border: none;
             padding: 1rem;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
+            transition: background 0.3s;
         }
 
-        .checkout-btn:hover {
-            background-color: #D4AF37;
+        .checkout-btn:hover:not(:disabled) {
+            background-color: #505035;
         }
 
         .checkout-btn:disabled {
@@ -330,7 +372,7 @@
             margin-bottom: 1rem;
         }
 
-        input {
+        input, textarea {
             padding: 0.8rem;
             border: 1px solid #E8E8E8;
             border-radius: 4px;
@@ -338,37 +380,10 @@
             font-family: inherit;
         }
 
-        input:focus {
+        input:focus, textarea:focus {
             outline: none;
-            border-color: #D4AF37;
-        }
-
-        .success-message {
-            text-align: center;
-            padding-top: 2rem;
-        }
-
-        .success-circle {
-            width: 60px;
-            height: 60px;
-            background-color: #D4AF37;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 2rem;
-        }
-
-        .success-message h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .success-message p {
-            color: #888780;
-            font-size: 0.95rem;
+            border-color: #606043;
+            box-shadow: 0 0 0 2px rgba(96, 96, 67, 0.1);
         }
 
         @media (max-width: 768px) {
@@ -379,14 +394,18 @@
             .modal-content {
                 max-width: 100%;
             }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <!-- HEADER -->
     <header>
-        <div class="logo">
-            <span class="logo-gold">◆</span> Panambí Dulce
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/231c379a4d4c5eb2138af52f30b5465c53c4e7a3/imagenes/Panamb%C3%AD%201.png" alt="Panambí Dulce" class="logo-img">
         </div>
         <button class="cart-button" onclick="toggleCart()">
             🛒
@@ -430,17 +449,69 @@
     </div>
 
     <script>
-        // PRODUCTOS - EDITABLE
+        // PRODUCTOS - EDITABLE FÁCILMENTE
+        // Cambio: Ahora cada producto tiene: nombre, precio, imagen, descripción, tamaño, personas, peso
         const products = [
-            { id: 1, name: 'Tarta de Queso Clásica', price: 25, image: '🧀', description: 'Tarta de queso con base de galleta y vainilla (opción sin gluten). Tamaño: 20cm / 10-12 Personas Peso: 1.6Kg' },
-            { id: 2, name: 'Tarta de Queso y Avellanas', price: 25, image: '🥜', description: 'Tarta de queso y avellanas con base degalleta (opción sin gluten). Tamaño: 20cm / 10-12 Personas. Peso: 1.6Kg' },
-            { id: 3, name: 'Tarta de Queso y Pistacho', price: 28, image: '🍯', description: 'Tarta de queso y pistachos con base degalleta (opción sin gluten). Tamaño: 20cm / 10-12 PersonasPeso: 1.6Kg' },
-            { id: 4, name: 'Cookies Premium', price: 12, image: '🍪', description: 'Pequeño lujo para cada momento' },
-            { id: 5, name: 'Tarta Personalizada', price: 60-100, image: '🎂', description: 'En Panambí realizamos tartas personalizadas y al gusto de nuestros clientes con ingredientes de la máxima calidad. Para ello se debe elegir el tamaño, la forma de la tarta, el sabor del bizcocho interior, el relleno y la cobertura o acabado final. El precio final varía en función de la configuración elegida.' },
-            { id: 6, name: 'Brownie de Chocolate', price: 15, image: '🍫', description: 'Intensidad sin compromiso' },
-            { id: 7, name: 'Tarta Marquesa', price: 32, image: '🫐', description: 'Musse horneada de chocolate semiamargo (sin harina), relleno de dulcede leche y nata montada con un topping de frambuesa y hojas de shiso. Tamaño: 20 cm / 10 Personas Peso: 1.3Kg' },
-            { id: 8, name: 'Tarta de Matcha', price: 30, image: '🍵', description: 'Elegancia asiática, sabor refinado' },
-            { id: 9, name: 'Baklava Artesanal', price: 32, image: '🍋', description: 'Capas de masa filo y pistachos con sirope de pimienta y pétalos de rosa. Tamaño: 20cm / 10-12 Personas. Peso: 1.6Kg' }
+            {
+                id: 1,
+                name: 'Tarta de Queso Clásica',
+                price: 25,
+                image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20clasica%201.JPG',
+                description: 'Tarta de queso con base de galleta y vainilla (opción sin gluten)',
+                tamanio: '20cm',
+                personas: '10-12',
+                peso: '1,6kg'
+            },
+            {
+                id: 2,
+                name: 'Tarta de Queso y Avellana',
+                price: 25,
+                image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20avellana%201.JPG',
+                description: 'Tarta de queso y avellanas con base de galleta (opción sin gluten)',
+                tamanio: '20cm',
+                personas: '10-12',
+                peso: '1,6kg'
+            },
+            {
+                id: 3,
+                name: 'Tarta de Queso y Pistacho',
+                price: 28,
+                image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20pistacho%201.PNG',
+                description: 'Tarta de queso y pistachos con base de galleta (opción sin gluten)',
+                tamanio: '20cm',
+                personas: '10-12',
+                peso: '1,6kg'
+            },
+            {
+                id: 4,
+                name: 'Tarta Personalizada',
+                price: 45,
+                image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20personalizada%202.JPG',
+                description: 'Tu diseño, tu sabor. Personaliza tu tarta según tus deseos',
+                tamanio: 'Personalizado',
+                personas: 'A consultar',
+                peso: 'A consultar'
+            },
+            {
+                id: 5,
+                name: 'Tarta Marquesa',
+                price: 32,
+                image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20marquesa%201.PNG',
+                description: 'Elegancia en chocolate. Capas de sofisticación y sabor',
+                tamanio: '20cm',
+                personas: '10',
+                peso: '1,3kg'
+            },
+            {
+                id: 6,
+                name: 'Baklava Artesanal',
+                price: 32,
+                image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Baklava%201.JPG',
+                description: 'Capas crujientes de masa filo con frutos secos y miel',
+                tamanio: 'Individual',
+                personas: '10-12',
+                peso: '1,6kg'
+            }
         ];
 
         let cart = [];
@@ -450,12 +521,28 @@
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = products.map(product => `
                 <div class="product-card">
-                    <div class="product-emoji">${product.image}</div>
-                    <div class="product-name">${product.name}</div>
-                    <div class="product-description">${product.description}</div>
-                    <div class="product-footer">
-                        <span class="product-price">${product.price}€</span>
-                        <button class="add-btn" onclick="addToCart(${product.id})">Añadir</button>
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-content">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-description">${product.description}</div>
+                        <div class="product-specs">
+                            <div class="spec">
+                                <span class="spec-label">Tamaño</span>
+                                <span class="spec-value">${product.tamanio}</span>
+                            </div>
+                            <div class="spec">
+                                <span class="spec-label">Personas</span>
+                                <span class="spec-value">${product.personas}</span>
+                            </div>
+                            <div class="spec">
+                                <span class="spec-label">Peso</span>
+                                <span class="spec-value">${product.peso}</span>
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <span class="product-price">${product.price}€</span>
+                            <button class="add-btn" onclick="addToCart(${product.id})">Añadir</button>
+                        </div>
                     </div>
                 </div>
             `).join('');
@@ -537,7 +624,8 @@
         function handleCheckout() {
             if (cart.length === 0) return;
             
-            alert('Gracias por tu compra! 🎉\n\nTotal: ' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2) + '€\n\nEn breve te contactaremos para confirmar los detalles.');
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
+            alert('¡Gracias por tu compra! 🎉\n\nTotal: ' + totalPrice + '€\n\nEn breve te contactaremos para confirmar los detalles de tu pedido.\n\nCorreo: info@panambi-dulce.com');
             cart = [];
             updateCart();
             toggleCart();
