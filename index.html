@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panambí Dulce - Tienda Online Pastelería Artesanal</title>
+    <title>Panambí Dulce - Pastelería Artesanal Premium</title>
     <style>
         * {
             margin: 0;
@@ -14,6 +14,7 @@
         :root {
             --color-fondo: #f9f6f0;
             --color-verde: #606043;
+            --color-marron: #6F5D49;
             --color-oro: #D4AF37;
             --color-texto: #1A1A1A;
             --color-texto-gris: #888780;
@@ -25,13 +26,12 @@
             color: var(--color-texto);
         }
 
-        /* BANNER MOVIMIENTO */
         .banner-movimiento {
             background-color: #000000;
             color: var(--color-fondo);
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             overflow: hidden;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             letter-spacing: 1px;
         }
@@ -51,18 +51,16 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* HEADER */
         header {
             background-color: var(--color-verde);
-            padding: 1.5rem 2%;
+            padding: 0.8rem 2%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 100%;
         }
 
         .logo-container {
-            height: 70px;
+            height: 60px;
             display: flex;
             align-items: center;
         }
@@ -70,7 +68,8 @@
         .logo-container img {
             height: 100%;
             object-fit: contain;
-            max-width: 300px;
+            max-width: 400px;
+            filter: brightness(0) invert(1);
         }
 
         .cart-button {
@@ -98,45 +97,51 @@
             justify-content: center;
         }
 
-        /* MENÚ NAVEGACIÓN */
         nav {
             background-color: var(--color-verde);
             padding: 0 2%;
             display: flex;
-            gap: 2rem;
+            gap: 0;
             justify-content: center;
             flex-wrap: wrap;
-            border-bottom: 2px solid var(--color-oro);
+            border-bottom: 2px solid var(--color-marron);
         }
 
-        nav a, nav button {
+        nav button {
             background: none;
             border: none;
             color: var(--color-fondo);
-            text-decoration: none;
-            padding: 1rem 1.5rem;
-            font-size: 1rem;
-            font-weight: 600;
+            padding: 0.9rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: color 0.3s;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
+            letter-spacing: 0.5px;
         }
 
-        nav a:hover, nav button:hover {
-            color: var(--color-oro);
+        nav button:hover {
+            color: var(--color-marron);
         }
 
-        nav a.activo, nav button.activo {
-            color: var(--color-oro);
-            border-bottom: 3px solid var(--color-oro);
+        nav button.activo {
+            color: var(--color-marron);
+            border-bottom: 3px solid var(--color-marron);
         }
 
-        /* CONTENIDO GENERAL */
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2%;
+        }
+
+        .seccion {
+            display: none;
+        }
+
+        .seccion.activa {
+            display: block;
         }
 
         .hero {
@@ -158,19 +163,9 @@
             font-weight: 300;
         }
 
-        /* SECCIONES */
-        .seccion {
-            display: none;
-        }
-
-        .seccion.activa {
-            display: block;
-        }
-
-        /* TARTAS */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2.5rem;
             margin-bottom: 4rem;
         }
@@ -179,34 +174,29 @@
             border: 1px solid #E8E8E8;
             overflow: hidden;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .product-card:hover {
-            border-color: var(--color-verde);
-            box-shadow: 0 4px 20px rgba(96, 96, 67, 0.15);
+            border-color: var(--color-marron);
+            box-shadow: 0 4px 20px rgba(111, 93, 73, 0.15);
         }
 
         .product-image {
             width: 100%;
-            height: 280px;
+            height: 250px;
             object-fit: cover;
         }
 
         .product-content {
-            padding: 1.8rem;
+            padding: 1.5rem;
         }
 
         .product-name {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.8rem;
-        }
-
-        .product-description {
-            color: var(--color-texto-gris);
-            font-size: 0.95rem;
-            margin-bottom: 1.2rem;
-            line-height: 1.5;
+            color: var(--color-marron);
         }
 
         .product-specs {
@@ -233,7 +223,7 @@
         }
 
         .spec-value {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--color-texto);
             font-weight: 500;
         }
@@ -246,16 +236,16 @@
         }
 
         .product-price {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--color-verde);
+            color: var(--color-marron);
         }
 
         .add-btn {
             background: var(--color-texto);
             color: var(--color-fondo);
             border: none;
-            padding: 0.9rem 1.4rem;
+            padding: 0.8rem 1.2rem;
             font-size: 0.9rem;
             cursor: pointer;
             font-weight: 600;
@@ -264,10 +254,274 @@
         }
 
         .add-btn:hover {
+            background: var(--color-marron);
+        }
+
+        .product-detail {
+            margin-bottom: 4rem;
+        }
+
+        .detail-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            align-items: start;
+        }
+
+        .gallery-main {
+            position: relative;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border: 1px solid #E8E8E8;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-thumbs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .thumb {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .thumb:hover, .thumb.activo {
+            border-color: var(--color-marron);
+        }
+
+        .detail-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-marron);
+        }
+
+        .detail-price {
+            font-size: 2rem;
+            color: var(--color-marron);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: white;
+            border: 1px solid #E8E8E8;
+        }
+
+        .detail-spec {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-spec-label {
+            font-size: 0.9rem;
+            color: var(--color-texto-gris);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-spec-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-texto);
+        }
+
+        .detail-description {
+            color: var(--color-texto-gris);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .btn-compra {
+            background: var(--color-marron);
+            color: var(--color-fondo);
+            border: none;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+            margin-bottom: 2rem;
+            transition: background 0.3s;
+        }
+
+        .btn-compra:hover {
             background: var(--color-verde);
         }
 
-        /* CONTACTO */
+        .info-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab-btn {
+            background: #E8E8E8;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: var(--color-texto);
+        }
+
+        .tab-btn.activo {
+            background: var(--color-marron);
+            color: var(--color-fondo);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            background: white;
+            border: 1px solid #E8E8E8;
+            margin-bottom: 2rem;
+        }
+
+        .tab-content.activo {
+            display: block;
+        }
+
+        .tab-content ul {
+            list-style: none;
+            padding-left: 2rem;
+        }
+
+        .tab-content li {
+            padding: 0.5rem 0;
+            color: var(--color-texto-gris);
+            line-height: 1.6;
+        }
+
+        .tab-content li:before {
+            content: "•";
+            color: var(--color-marron);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .recomendadas {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid #E8E8E8;
+        }
+
+        .recomendadas h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--color-marron);
+        }
+
+        .personalizadas-section {
+            margin-bottom: 4rem;
+        }
+
+        .personalizadas-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .personalizadas-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--color-marron);
+        }
+
+        .personalizadas-info p {
+            color: var(--color-texto-gris);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .configurador {
+            background: white;
+            padding: 2rem;
+            border: 1px solid #E8E8E8;
+            margin-bottom: 2rem;
+        }
+
+        .config-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .config-label {
+            display: block;
+            font-weight: 600;
+            color: var(--color-marron);
+            margin-bottom: 0.8rem;
+        }
+
+        .config-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+
+        .config-option {
+            padding: 0.8rem;
+            border: 1px solid #E8E8E8;
+            background: var(--color-fondo);
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .config-option:hover {
+            border-color: var(--color-marron);
+        }
+
+        .config-option.selected {
+            background: var(--color-marron);
+            color: var(--color-fondo);
+            border-color: var(--color-marron);
+        }
+
+        .personalizadas-galeria {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .personalizadas-foto {
+            text-align: center;
+        }
+
+        .personalizadas-foto img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border: 1px solid #E8E8E8;
+            margin-bottom: 1rem;
+        }
+
+        .personalizadas-foto p {
+            font-weight: 600;
+            color: var(--color-marron);
+        }
+
         .contacto-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -278,7 +532,7 @@
         .contacto-info h2 {
             font-size: 1.8rem;
             margin-bottom: 2rem;
-            color: var(--color-verde);
+            color: var(--color-marron);
         }
 
         .contacto-item {
@@ -288,11 +542,11 @@
         .contacto-item h3 {
             font-size: 1.1rem;
             margin-bottom: 0.8rem;
-            color: var(--color-verde);
+            color: var(--color-marron);
         }
 
         .contacto-item a {
-            color: var(--color-verde);
+            color: var(--color-marron);
             text-decoration: none;
             font-weight: 600;
             display: inline-block;
@@ -301,7 +555,7 @@
         }
 
         .contacto-item a:hover {
-            color: var(--color-oro);
+            color: var(--color-verde);
         }
 
         .redes-sociales {
@@ -316,17 +570,17 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.7rem 1.2rem;
-            background: var(--color-verde);
+            background: var(--color-marron);
             color: var(--color-fondo);
             text-decoration: none;
             border-radius: 4px;
             font-weight: 600;
+            font-size: 0.95rem;
             transition: background 0.3s;
         }
 
         .red-social:hover {
-            background: var(--color-oro);
-            color: var(--color-texto);
+            background: var(--color-verde);
         }
 
         .formulario-contacto {
@@ -338,7 +592,7 @@
         .formulario-contacto h3 {
             font-size: 1.3rem;
             margin-bottom: 1.5rem;
-            color: var(--color-verde);
+            color: var(--color-marron);
         }
 
         .form-group {
@@ -370,12 +624,12 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--color-verde);
-            box-shadow: 0 0 0 2px rgba(96, 96, 67, 0.1);
+            border-color: var(--color-marron);
+            box-shadow: 0 0 0 2px rgba(111, 93, 73, 0.1);
         }
 
         .btn-enviar {
-            background: var(--color-verde);
+            background: var(--color-marron);
             color: var(--color-fondo);
             border: none;
             padding: 1rem 2rem;
@@ -387,13 +641,11 @@
         }
 
         .btn-enviar:hover {
-            background: var(--color-oro);
-            color: var(--color-texto);
+            background: var(--color-verde);
         }
 
-        /* PREGUNTAS FRECUENTES */
         .faq-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto 4rem;
         }
 
@@ -405,7 +657,7 @@
         }
 
         .faq-pregunta {
-            background: var(--color-verde);
+            background: var(--color-marron);
             color: var(--color-fondo);
             padding: 1.5rem;
             cursor: pointer;
@@ -418,8 +670,7 @@
         }
 
         .faq-pregunta:hover {
-            background: var(--color-oro);
-            color: var(--color-texto);
+            background: var(--color-verde);
         }
 
         .faq-icon {
@@ -443,7 +694,6 @@
             display: block;
         }
 
-        /* FOOTER */
         footer {
             border-top: 1px solid #E8E8E8;
             padding: 2rem 2%;
@@ -453,7 +703,6 @@
             margin-top: 4rem;
         }
 
-        /* MODAL CARRITO */
         .modal {
             display: none;
             position: fixed;
@@ -486,7 +735,7 @@
         }
 
         .modal-header {
-            background-color: var(--color-verde);
+            background-color: var(--color-marron);
             color: var(--color-fondo);
             display: flex;
             justify-content: space-between;
@@ -541,12 +790,6 @@
             font-weight: bold;
         }
 
-        .qty-display {
-            width: 30px;
-            text-align: center;
-            font-weight: 600;
-        }
-
         .modal-footer {
             border-top: 1px solid #E8E8E8;
             padding: 1.5rem;
@@ -555,15 +798,8 @@
             gap: 1rem;
         }
 
-        .total-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
         .checkout-btn {
-            background-color: var(--color-verde);
+            background-color: var(--color-marron);
             color: var(--color-fondo);
             border: none;
             padding: 1rem;
@@ -573,18 +809,16 @@
         }
 
         .checkout-btn:hover:not(:disabled) {
-            background-color: var(--color-oro);
-            color: var(--color-texto);
+            background-color: var(--color-verde);
         }
 
-        /* COOKIE CONSENT */
         .cookie-banner {
             display: none;
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: var(--color-verde);
+            background: var(--color-marron);
             color: var(--color-fondo);
             padding: 1.5rem 2%;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
@@ -610,12 +844,6 @@
             line-height: 1.5;
         }
 
-        .cookie-text a {
-            color: var(--color-oro);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
         .cookie-buttons {
             display: flex;
             gap: 1rem;
@@ -635,28 +863,26 @@
             color: var(--color-texto);
         }
 
-        .cookie-aceptar:hover {
-            background: white;
-        }
-
         .cookie-rechazar {
             background: transparent;
             color: var(--color-fondo);
             border: 2px solid var(--color-fondo);
         }
 
-        .cookie-rechazar:hover {
-            background: var(--color-fondo);
-            color: var(--color-verde);
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
 
+            .detail-header {
+                grid-template-columns: 1fr;
+            }
+
             .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .personalizadas-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -664,36 +890,18 @@
                 max-width: 100%;
             }
 
-            nav {
-                gap: 0.5rem;
-            }
-
-            nav a, nav button {
-                padding: 0.8rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .logo-container {
-                height: 50px;
+            .info-tabs {
+                grid-template-columns: 1fr;
             }
 
             .cookie-banner.activa {
                 flex-direction: column;
                 align-items: flex-start;
             }
-
-            .cookie-buttons {
-                width: 100%;
-            }
-
-            .cookie-btn {
-                flex: 1;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- BANNER MOVIMIENTO -->
     <div class="banner-movimiento">
         <div class="banner-contenido">
             <span class="banner-texto">✨ Envíos en 24-48h • Tartas artesanales • Encargos personalizados ✨</span>
@@ -701,7 +909,6 @@
         </div>
     </div>
 
-    <!-- HEADER -->
     <header>
         <div class="logo-container">
             <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/06e5c4daab52367c7a84810f061e198bba9f1e9b/imagenes/Logotipo%20Panamb%C3%AD.svg" alt="Panambí Dulce">
@@ -712,14 +919,13 @@
         </button>
     </header>
 
-    <!-- MENÚ NAVEGACIÓN -->
     <nav>
         <button class="nav-btn activo" onclick="mostrarSeccion('tartas')">TARTAS</button>
+        <button class="nav-btn" onclick="mostrarSeccion('personalizadas')">TARTAS PERSONALIZADAS</button>
         <button class="nav-btn" onclick="mostrarSeccion('contacto')">CONTACTO</button>
         <button class="nav-btn" onclick="mostrarSeccion('faq')">PREGUNTAS FRECUENTES</button>
     </nav>
 
-    <!-- CONTENEDOR PRINCIPAL -->
     <div class="container">
         <!-- SECCIÓN TARTAS -->
         <section id="tartas" class="seccion activa">
@@ -728,6 +934,85 @@
                 <p>Donde la sofisticación encuentra cada bocado</p>
             </div>
             <div class="products-grid" id="productsGrid"></div>
+        </section>
+
+        <!-- SECCIÓN PRODUCTO INDIVIDUAL -->
+        <section id="producto-detalle" class="seccion">
+            <div id="detailContent"></div>
+        </section>
+
+        <!-- SECCIÓN TARTAS PERSONALIZADAS -->
+        <section id="personalizadas" class="seccion">
+            <div class="hero">
+                <h1>Tartas Personalizadas</h1>
+                <p>Tu diseño, tu sabor, nuestra dedicación</p>
+            </div>
+            <div class="personalizadas-section">
+                <div class="personalizadas-grid">
+                    <div class="personalizadas-info">
+                        <h2>Crea tu tarta</h2>
+                        <p>En Panambí realizamos tartas personalizadas y al gusto de nuestros clientes con ingredientes de la máxima calidad.</p>
+                        <p>Elige el tamaño, la forma de la tarta, el sabor del bizcocho interior, el relleno y la cobertura o acabado final. El precio final varía en función de la configuración elegida.</p>
+                        <p>Contacta con nosotros para conocer presupuesto exacto.</p>
+                        <div class="configurador">
+                            <div class="config-group">
+                                <label class="config-label">Tamaño</label>
+                                <div class="config-options">
+                                    <div class="config-option" onclick="selectConfig(this)">Pequeña (8-10 raciones)</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Mediana (15 raciones)</div>
+                                </div>
+                            </div>
+                            <div class="config-group">
+                                <label class="config-label">Sabor Bizcocho</label>
+                                <div class="config-options">
+                                    <div class="config-option" onclick="selectConfig(this)">Vainilla</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Zanahoria</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Chocolate</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Limón</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Naranja</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Fresas</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Cardamomo</div>
+                                </div>
+                            </div>
+                            <div class="config-group">
+                                <label class="config-label">Relleno</label>
+                                <div class="config-options">
+                                    <div class="config-option" onclick="selectConfig(this)">Crema de Limón</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Dulce de Leche</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Nutella y Plátano</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Ganache Chocolate Blanco</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Manzanas Asadas</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Cumquat Confitado</div>
+                                </div>
+                            </div>
+                            <div class="config-group">
+                                <label class="config-label">Cobertura</label>
+                                <div class="config-options">
+                                    <div class="config-option" onclick="selectConfig(this)">Crema de Mantequilla</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Fruta de Temporada</div>
+                                </div>
+                            </div>
+                            <div class="config-group">
+                                <label class="config-label">Forma</label>
+                                <div class="config-options">
+                                    <div class="config-option" onclick="selectConfig(this)">Cilíndrica</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Dome</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="personalizadas-galeria">
+                        <div class="personalizadas-foto">
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%201.jpg" alt="Tarta de Moras">
+                            <p>Cobertura de Fruta: Moras</p>
+                        </div>
+                        <div class="personalizadas-foto">
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Flores%20Domo%201.jpg" alt="Tarta con Flores">
+                            <p>Forma Dome con Decoración</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- SECCIÓN CONTACTO -->
@@ -741,22 +1026,22 @@
                     <h2>¿Cómo nos contactas?</h2>
                     
                     <div class="contacto-item">
-                        <h3>📱 Teléfono</h3>
+                        <h3>Teléfono</h3>
                         <a href="tel:623057063">623 057 063</a>
                     </div>
 
                     <div class="contacto-item">
-                        <h3>💬 WhatsApp</h3>
+                        <h3>WhatsApp</h3>
                         <a href="https://wa.me/34623057063" target="_blank">Escribenos en WhatsApp</a>
                     </div>
 
                     <div class="contacto-item">
-                        <h3>📧 Email</h3>
+                        <h3>Email</h3>
                         <a href="mailto:panambi.dulce@gmail.com">panambi.dulce@gmail.com</a>
                     </div>
 
                     <div class="contacto-item">
-                        <h3>📱 Redes Sociales</h3>
+                        <h3>Redes Sociales</h3>
                         <div class="redes-sociales">
                             <a href="https://instagram.com/panambi_dulce" target="_blank" class="red-social">Instagram</a>
                             <a href="https://tiktok.com/@panambi_dulce" target="_blank" class="red-social">TikTok</a>
@@ -799,7 +1084,6 @@
         </section>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <p>Madrid | Entregas en 24-48h</p>
         <p style="margin-top: 0.5rem;">© 2025 Panambí Dulce - Pastelería Artesanal</p>
@@ -814,7 +1098,7 @@
             </div>
             <div class="modal-body" id="cartBody"></div>
             <div class="modal-footer">
-                <div class="total-row">
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700;">
                     <span>Total:</span>
                     <span id="totalPrice">0€</span>
                 </div>
@@ -826,7 +1110,7 @@
     <!-- COOKIE CONSENT -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-text">
-            🍪 Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href="#">política de cookies</a>.
+            Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra política de cookies.
         </div>
         <div class="cookie-buttons">
             <button class="cookie-btn cookie-aceptar" onclick="aceptarCookies()">Aceptar</button>
@@ -835,14 +1119,78 @@
     </div>
 
     <script>
-        // ===== CONFIGURACIÓN =====
+        // DATOS DE PRODUCTOS CON INGREDIENTES, ALÉRGENOS Y TRAZAS
         const products = [
-            { id: 1, name: 'Tarta de Queso Clásica', price: 25, image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20clasica%201.JPG', description: 'Tarta de queso con base de galleta y vainilla (opción sin gluten)', tamanio: '20cm', personas: '10-12', peso: '1,6kg' },
-            { id: 2, name: 'Tarta de Queso y Avellana', price: 25, image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20avellana%201.JPG', description: 'Tarta de queso y avellanas con base degalleta (opción sin gluten)', tamanio: '20cm', personas: '10-12', peso: '1,6kg' },
-            { id: 3, name: 'Tarta de Queso y Pistacho', price: 28, image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20pistacho%201.PNG', description: 'Tarta de queso y pistachos con base degalleta (opción sin gluten)', tamanio: '20cm', personas: '10-12', peso: '1,6kg' },
-            { id: 4, name: 'Tarta Personalizada', price: 45, image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20personalizada%202.JPG', description: 'Tu diseño, tu sabor. Personaliza tu tarta según tus deseos', tamanio: 'Personalizado', personas: 'A consultar', peso: 'A consultar' },
-            { id: 5, name: 'Tarta Marquesa', price: 32, image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20marquesa%201.PNG', description: 'Elegancia en chocolate. Capas de sofisticación y sabor', tamanio: '20cm', personas: '10-12', peso: '1,6kg' },
-            { id: 6, name: 'Baklava Artesanal', price: 18, image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Baklava%201.JPG', description: 'Capas crujientes de masa filo con frutos secos y miel', tamanio: 'Individual', personas: '1-2', peso: '150g' }
+            {
+                id: 1,
+                name: 'Tarta de Queso Clásica',
+                price: 25,
+                image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20clasica%201.JPG',
+                images: ['https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20clasica%201.JPG'],
+                description: 'Nuestra tarta de queso clásica es una delicia cremosa con base de galleta y vainilla. Perfecta para cualquier ocasión.',
+                tamanio: '20cm',
+                personas: '10-12',
+                peso: '1,6kg',
+                ingredientes: ['Azúcar', 'Harina de trigo (gluten)', 'Aceite de girasol alto oléico 13%', 'Jarabe de glucosa', 'Aroma', 'Suero de leche en polvo', 'Gasificantes (carbonato ácido de sodio, carbonato de amonio)', 'Sal', 'Emulgente (lecitina de girasol)', 'Antioxidante (metabisulfito sódico)', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Almidón de maíz', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)', 'Leche entera pasteurizada', 'Estabilizantes (goma garrofín, goma guar)', 'Vanilla planifolia'],
+                alergenos: ['Gluten (Trigo)', 'Lácteos (Leche)', 'Soja', 'Sulfitos', 'Huevo'],
+                trazas: ['Frutos de cáscara', 'Soja', 'Mostaza']
+            },
+            {
+                id: 2,
+                name: 'Tarta de Queso y Avellana',
+                price: 25,
+                image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20avellana%201.JPG',
+                images: ['https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20avellana%201.JPG'],
+                description: 'Una combinación elegante de queso cremoso con avellanas peladas. Un toque sofisticado para tus celebraciones.',
+                tamanio: '20cm',
+                personas: '10-12',
+                peso: '1,6kg',
+                ingredientes: ['Avellana repelada', 'Azúcar', 'Harina de trigo (gluten)', 'Aceite de girasol alto oléico 13%', 'Jarabe de glucosa', 'Aroma', 'Suero de leche en polvo', 'Gasificantes (carbonato ácido de sodio, carbonato de amonio)', 'Sal', 'Emulgente (lecitina de girasol)', 'Antioxidante (metabisulfito sódico)', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Almidón de maíz', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)', 'Leche entera pasteurizada', 'Nata'],
+                alergenos: ['Frutos de cáscara (Avellana)', 'Gluten (Trigo)', 'Lácteos (Leche)', 'Soja', 'Sulfitos', 'Huevo'],
+                trazas: ['Cacahuetes', 'otros frutos de cáscara', 'Soja', 'Mostaza']
+            },
+            {
+                id: 3,
+                name: 'Tarta de Queso y Pistacho',
+                price: 28,
+                image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20pistacho%201.PNG',
+                images: ['https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20pistacho%201.PNG'],
+                description: 'Queso cremoso con pistachos pelados. Una tarta elegante y sofisticada con un sabor único.',
+                tamanio: '20cm',
+                personas: '10-12',
+                peso: '1,6kg',
+                ingredientes: ['Azúcar', 'Harina de trigo (gluten)', 'Aceite de girasol alto oléico 13%', 'Jarabe de glucosa', 'Aroma', 'Suero de leche en polvo', 'Gasificantes (carbonato ácido de sodio, carbonato de amonio)', 'Sal', 'Emulgente (lecitina de girasol)', 'Antioxidante (metabisulfito sódico)', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Almidón de maíz', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)', 'Pistachos pelados', 'Leche entera pasteurizada', 'Nata', 'Estabilizantes (goma garrofín, goma guar)'],
+                alergenos: ['Gluten (Trigo)', 'Lácteos (Leche)', 'Soja', 'Sulfitos', 'Huevo', 'Frutos de cáscara (Pistacho)'],
+                trazas: ['Frutos de cáscara', 'Soja', 'Mostaza', 'Cacahuetes', 'otros frutos de cáscara']
+            },
+            {
+                id: 5,
+                name: 'Tarta Marquesa',
+                price: 32,
+                image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20marquesa%201.PNG',
+                images: ['https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20marquesa%201.PNG'],
+                description: 'Elegancia en chocolate. Una tarta con capas de chocolate intenso y arándanos frescos. Sofisticación y sabor en cada bocado.',
+                tamanio: '20cm',
+                personas: '10-12',
+                peso: '1,6kg',
+                ingredientes: ['Arándanos frescos', 'Azúcar', 'Pasta de cacao', 'Manteca de cacao', 'Emulgente (lecitina de soja)', 'Aroma natural de vainilla', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)'],
+                alergenos: ['Soja', 'Huevo', 'Lácteos (Leche)'],
+                trazas: ['Lácteos (Leche)']
+            },
+            {
+                id: 6,
+                name: 'Baklava Artesanal',
+                price: 18,
+                image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Baklava%201.JPG',
+                images: ['https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Baklava%201.JPG'],
+                description: 'Capas crujientes de masa filo con pistachos pelados y miel. Un postre tradicional con ese toque artesanal que nos caracteriza.',
+                tamanio: 'Individual',
+                personas: '1-2',
+                peso: '150g',
+                ingredientes: ['Agua', 'Aroma de azahar', 'Azúcar', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Harina de trigo', 'Almidón de maíz', 'Sal', 'Conservador (sorbato potásico)', 'Agente de tratamiento de la harina (L-cisteína)', 'Pistachos pelados'],
+                alergenos: ['Lácteos (Leche)', 'Gluten (Trigo)', 'Frutos de cáscara (Pistacho)'],
+                trazas: ['Cacahuetes', 'otros frutos de cáscara']
+            }
         ];
 
         const faqs = [
@@ -856,33 +1204,27 @@
 
         let cart = [];
 
-        // ===== INICIALIZACIÓN =====
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
             renderFAQs();
             mostrarCookies();
         });
 
-        // ===== FUNCIONES NAVEGACIÓN =====
         function mostrarSeccion(seccionId) {
             document.querySelectorAll('.seccion').forEach(sec => sec.classList.remove('activa'));
             document.getElementById(seccionId).classList.add('activa');
-
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('activo'));
             event.target.classList.add('activo');
-
             window.scrollTo(0, 0);
         }
 
-        // ===== PRODUCTOS =====
         function renderProducts() {
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = products.map(product => `
-                <div class="product-card">
+                <div class="product-card" onclick="verDetalles(${product.id})">
                     <img src="${product.image}" alt="${product.name}" class="product-image">
                     <div class="product-content">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-description">${product.description}</div>
                         <div class="product-specs">
                             <div class="spec">
                                 <span class="spec-label">Tamaño</span>
@@ -899,14 +1241,137 @@
                         </div>
                         <div class="product-footer">
                             <span class="product-price">${product.price}€</span>
-                            <button class="add-btn" onclick="addToCart(${product.id})">Añadir</button>
+                            <button class="add-btn" onclick="addToCart(event, ${product.id})">Añadir</button>
                         </div>
                     </div>
                 </div>
             `).join('');
         }
 
-        function addToCart(productId) {
+        function verDetalles(productId) {
+            const product = products.find(p => p.id === productId);
+            const recomendadas = products.filter(p => p.id !== productId).slice(0, 3);
+
+            const detailHTML = `
+                <button onclick="volver()" style="background: var(--color-marron); color: var(--color-fondo); border: none; padding: 0.8rem 1.5rem; cursor: pointer; font-weight: 600; margin-bottom: 2rem; border-radius: 4px;">← Volver</button>
+                <div class="product-detail">
+                    <div class="detail-header">
+                        <div class="gallery-main">
+                            <img src="${product.images[0]}" alt="${product.name}" class="main-image" id="mainImage">
+                            <div class="gallery-thumbs" id="thumbs">
+                                ${product.images.map((img, idx) => `
+                                    <img src="${img}" alt="Thumbnail ${idx + 1}" class="thumb ${idx === 0 ? 'activo' : ''}" onclick="cambiarImagen('${img}', this)">
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div>
+                            <h1>${product.name}</h1>
+                            <div class="detail-price">${product.price}€</div>
+                            <div class="detail-specs">
+                                <div class="detail-spec">
+                                    <span class="detail-spec-label">Tamaño</span>
+                                    <span class="detail-spec-value">${product.tamanio}</span>
+                                </div>
+                                <div class="detail-spec">
+                                    <span class="detail-spec-label">Personas</span>
+                                    <span class="detail-spec-value">${product.personas}</span>
+                                </div>
+                                <div class="detail-spec">
+                                    <span class="detail-spec-label">Peso</span>
+                                    <span class="detail-spec-value">${product.peso}</span>
+                                </div>
+                            </div>
+                            <p class="detail-description">${product.description}</p>
+                            <button class="btn-compra" onclick="addToCart(event, ${product.id})">Añadir al carrito</button>
+                        </div>
+                    </div>
+
+                    <div class="info-tabs">
+                        <button class="tab-btn activo" onclick="mostrarTab(event, 'ingredientes')">Ingredientes</button>
+                        <button class="tab-btn" onclick="mostrarTab(event, 'alergenos')">Alérgenos</button>
+                        <button class="tab-btn" onclick="mostrarTab(event, 'trazas')">Posibles Trazas</button>
+                    </div>
+
+                    <div id="ingredientes" class="tab-content activo">
+                        <ul>
+                            ${product.ingredientes.map(ing => `<li>${ing}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div id="alergenos" class="tab-content">
+                        <ul>
+                            ${product.alergenos.map(ale => `<li>${ale}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div id="trazas" class="tab-content">
+                        <ul>
+                            ${product.trazas.map(tra => `<li>${tra}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="recomendadas">
+                        <h2>Otros productos que te pueden interesar</h2>
+                        <div class="products-grid">
+                            ${recomendadas.map(p => `
+                                <div class="product-card" onclick="verDetalles(${p.id})">
+                                    <img src="${p.image}" alt="${p.name}" class="product-image">
+                                    <div class="product-content">
+                                        <div class="product-name">${p.name}</div>
+                                        <div class="product-specs">
+                                            <div class="spec">
+                                                <span class="spec-label">Tamaño</span>
+                                                <span class="spec-value">${p.tamanio}</span>
+                                            </div>
+                                            <div class="spec">
+                                                <span class="spec-label">Personas</span>
+                                                <span class="spec-value">${p.personas}</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="product-price">${p.price}€</span>
+                                            <button class="add-btn" onclick="addToCart(event, ${p.id})">Añadir</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('detailContent').innerHTML = detailHTML;
+            document.getElementById('tartas').classList.remove('activa');
+            document.getElementById('producto-detalle').classList.add('activa');
+            window.scrollTo(0, 0);
+        }
+
+        function volver() {
+            document.getElementById('producto-detalle').classList.remove('activa');
+            document.getElementById('tartas').classList.add('activa');
+            window.scrollTo(0, 0);
+        }
+
+        function cambiarImagen(src, element) {
+            document.getElementById('mainImage').src = src;
+            document.querySelectorAll('.thumb').forEach(thumb => thumb.classList.remove('activo'));
+            element.classList.add('activo');
+        }
+
+        function mostrarTab(event, tabId) {
+            event.target.parentElement.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('activo'));
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('activo'));
+            event.target.classList.add('activo');
+            document.getElementById(tabId).classList.add('activo');
+        }
+
+        function selectConfig(element) {
+            element.parentElement.querySelectorAll('.config-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        function addToCart(event, productId) {
+            event.stopPropagation();
             const product = products.find(p => p.id === productId);
             const existingItem = cart.find(item => item.id === productId);
             
@@ -915,6 +1380,7 @@
             } else {
                 cart.push({ ...product, quantity: 1 });
             }
+            
             updateCart();
         }
 
@@ -951,7 +1417,7 @@
                         </div>
                         <div class="quantity-controls">
                             <button class="qty-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">−</button>
-                            <span class="qty-display">${item.quantity}</span>
+                            <span style="width: 30px; text-align: center; font-weight: 600;">${item.quantity}</span>
                             <button class="qty-btn" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
                             <button style="background: none; border: none; cursor: pointer; color: #888780; padding: 0.4rem;" onclick="updateQuantity(${item.id}, 0)">✕</button>
                         </div>
@@ -969,13 +1435,12 @@
         function handleCheckout() {
             if (cart.length === 0) return;
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
-            alert(`¡Gracias por tu compra! 🎉\n\nTotal: ${total}€\n\nEn breve te contactaremos para confirmar los detalles.\n\nCorreo: panambi.dulce@gmail.com`);
+            alert(`¡Gracias por tu compra!\n\nTotal: ${total}€\n\nEn breve te contactaremos para confirmar los detalles.\n\nCorreo: panambi.dulce@gmail.com`);
             cart = [];
             updateCart();
             toggleCart();
         }
 
-        // ===== PREGUNTAS FRECUENTES =====
         function renderFAQs() {
             const faqContainer = document.getElementById('faqContainer');
             faqContainer.innerHTML = faqs.map((faq, index) => `
@@ -994,7 +1459,6 @@
             items[index].classList.toggle('activo');
         }
 
-        // ===== FORMULARIO CONTACTO =====
         function enviarFormulario(event) {
             event.preventDefault();
             const nombre = document.getElementById('nombre').value;
@@ -1009,7 +1473,6 @@
             event.target.reset();
         }
 
-        // ===== COOKIES =====
         function mostrarCookies() {
             if (!localStorage.getItem('cookiesAceptadas')) {
                 document.getElementById('cookieBanner').classList.add('activa');
