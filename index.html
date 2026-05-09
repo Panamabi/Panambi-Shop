@@ -14,7 +14,7 @@
         :root {
             --color-fondo: #f9f6f0;
             --color-verde: #606043;
-            --color-marron: #6F5D49;
+            --color-marron: #40342b;
             --color-oro: #D4AF37;
             --color-texto: #1A1A1A;
             --color-texto-gris: #888780;
@@ -60,7 +60,7 @@
         }
 
         .logo-container {
-            height: 60px;
+            height: 150px;
             display: flex;
             align-items: center;
         }
@@ -242,7 +242,7 @@
         }
 
         .add-btn {
-            background: var(--color-texto);
+            background: var(--color-verde);
             color: var(--color-fondo);
             border: none;
             padding: 0.8rem 1.2rem;
@@ -350,7 +350,7 @@
         }
 
         .btn-compra {
-            background: var(--color-marron);
+            background: var(--color-verde);
             color: var(--color-fondo);
             border: none;
             padding: 1.2rem 2.5rem;
@@ -384,7 +384,7 @@
         }
 
         .tab-btn.activo {
-            background: var(--color-marron);
+            background: var(--color-verde);
             color: var(--color-fondo);
         }
 
@@ -470,7 +470,7 @@
         .config-label {
             display: block;
             font-weight: 600;
-            color: var(--color-marron);
+            color: var(--color-verde);
             margin-bottom: 0.8rem;
         }
 
@@ -494,9 +494,9 @@
         }
 
         .config-option.selected {
-            background: var(--color-marron);
+            background: var(--color-verde);
             color: var(--color-fondo);
-            border-color: var(--color-marron);
+            border-color: var(--color-verde);
         }
 
         .personalizadas-galeria {
@@ -570,7 +570,7 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.7rem 1.2rem;
-            background: var(--color-marron);
+            background: var(--color-verde);
             color: var(--color-fondo);
             text-decoration: none;
             border-radius: 4px;
@@ -580,7 +580,7 @@
         }
 
         .red-social:hover {
-            background: var(--color-verde);
+            background: var(--color-marron);
         }
 
         .formulario-contacto {
@@ -629,7 +629,7 @@
         }
 
         .btn-enviar {
-            background: var(--color-marron);
+            background: var(--color-verde);
             color: var(--color-fondo);
             border: none;
             padding: 1rem 2rem;
@@ -641,7 +641,7 @@
         }
 
         .btn-enviar:hover {
-            background: var(--color-verde);
+            background: var(--color-marron);
         }
 
         .faq-container {
@@ -657,7 +657,7 @@
         }
 
         .faq-pregunta {
-            background: var(--color-marron);
+            background: var(--color-verde);
             color: var(--color-fondo);
             padding: 1.5rem;
             cursor: pointer;
@@ -670,7 +670,7 @@
         }
 
         .faq-pregunta:hover {
-            background: var(--color-verde);
+            background: var(--color-marron);
         }
 
         .faq-icon {
@@ -920,7 +920,7 @@
     </header>
 
     <nav>
-        <button class="nav-btn activo" onclick="mostrarSeccion('tartas')">TARTAS</button>
+        <button class="nav-btn activo" onclick="mostrarSeccion('pasteleria')">PASTELERIA</button>
         <button class="nav-btn" onclick="mostrarSeccion('personalizadas')">TARTAS PERSONALIZADAS</button>
         <button class="nav-btn" onclick="mostrarSeccion('contacto')">CONTACTO</button>
         <button class="nav-btn" onclick="mostrarSeccion('faq')">PREGUNTAS FRECUENTES</button>
@@ -928,7 +928,7 @@
 
     <div class="container">
         <!-- SECCIÓN TARTAS -->
-        <section id="tartas" class="seccion activa">
+        <section id="pasteleria" class="seccion activa">
             <div class="hero">
                 <h1>Nuestras Tartas</h1>
                 <p>Donde la sofisticación encuentra cada bocado</p>
@@ -1004,11 +1004,15 @@
                     <div class="personalizadas-galeria">
                         <div class="personalizadas-foto">
                             <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%201.jpg" alt="Tarta de Moras">
-                            <p>Cobertura de Fruta: Moras</p>
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%202.jpg" alt="Tarta de Moras">
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%203.jpg" alt="Tarta de Moras">
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%204.jpg" alt="Tarta de Moras">
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%205.jpg" alt="Tarta de Moras">
+                            <p>Forma Dome con Cobertura Moras</p>
                         </div>
                         <div class="personalizadas-foto">
                             <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Flores%20Domo%201.jpg" alt="Tarta con Flores">
-                            <p>Forma Dome con Decoración</p>
+                            <p>Forma Dome con Decoración de Flores</p>
                         </div>
                     </div>
                 </div>
@@ -1032,7 +1036,7 @@
 
                     <div class="contacto-item">
                         <h3>WhatsApp</h3>
-                        <a href="https://wa.me/34623057063" target="_blank">Escribenos en WhatsApp</a>
+                        <a href="https://wa.me/34623057063" target="_blank">623 057 063</a>
                     </div>
 
                     <div class="contacto-item">
@@ -1130,7 +1134,7 @@
                 description: 'Nuestra tarta de queso clásica es una delicia cremosa con base de galleta y vainilla. Perfecta para cualquier ocasión.',
                 tamanio: '20cm',
                 personas: '10-12',
-                peso: '1,6kg',
+                peso: '1,5kg',
                 ingredientes: ['Azúcar', 'Harina de trigo (gluten)', 'Aceite de girasol alto oléico 13%', 'Jarabe de glucosa', 'Aroma', 'Suero de leche en polvo', 'Gasificantes (carbonato ácido de sodio, carbonato de amonio)', 'Sal', 'Emulgente (lecitina de girasol)', 'Antioxidante (metabisulfito sódico)', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Almidón de maíz', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)', 'Leche entera pasteurizada', 'Estabilizantes (goma garrofín, goma guar)', 'Vanilla planifolia'],
                 alergenos: ['Gluten (Trigo)', 'Lácteos (Leche)', 'Soja', 'Sulfitos', 'Huevo'],
                 trazas: ['Frutos de cáscara', 'Soja', 'Mostaza']
@@ -1144,7 +1148,7 @@
                 description: 'Una combinación elegante de queso cremoso con avellanas peladas. Un toque sofisticado para tus celebraciones.',
                 tamanio: '20cm',
                 personas: '10-12',
-                peso: '1,6kg',
+                peso: '1,5kg',
                 ingredientes: ['Avellana repelada', 'Azúcar', 'Harina de trigo (gluten)', 'Aceite de girasol alto oléico 13%', 'Jarabe de glucosa', 'Aroma', 'Suero de leche en polvo', 'Gasificantes (carbonato ácido de sodio, carbonato de amonio)', 'Sal', 'Emulgente (lecitina de girasol)', 'Antioxidante (metabisulfito sódico)', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Almidón de maíz', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)', 'Leche entera pasteurizada', 'Nata'],
                 alergenos: ['Frutos de cáscara (Avellana)', 'Gluten (Trigo)', 'Lácteos (Leche)', 'Soja', 'Sulfitos', 'Huevo'],
                 trazas: ['Cacahuetes', 'otros frutos de cáscara', 'Soja', 'Mostaza']
@@ -1158,8 +1162,8 @@
                 description: 'Queso cremoso con pistachos pelados. Una tarta elegante y sofisticada con un sabor único.',
                 tamanio: '20cm',
                 personas: '10-12',
-                peso: '1,6kg',
-                ingredientes: ['Azúcar', 'Harina de trigo (gluten)', 'Aceite de girasol alto oléico 13%', 'Jarabe de glucosa', 'Aroma', 'Suero de leche en polvo', 'Gasificantes (carbonato ácido de sodio, carbonato de amonio)', 'Sal', 'Emulgente (lecitina de girasol)', 'Antioxidante (metabisulfito sódico)', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Almidón de maíz', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)', 'Pistachos pelados', 'Leche entera pasteurizada', 'Nata', 'Estabilizantes (goma garrofín, goma guar)'],
+                peso: '1,5kg',
+                ingredientes: ['Azúcar', 'Harina de trigo (gluten)', 'Aceite de girasol alto oléico 13%', 'Jarabe de glucosa', 'Aroma', 'Suero de leche en polvo', 'Gasificantes (carbonato ácido de sodio, carbonato de amonio)', 'Sal', 'Emulgente (lecitina de girasol)', 'Antioxidante (metabisulfito sódico)', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Almidón de maíz', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)', 'Pistachos', 'Leche entera pasteurizada', 'Nata', 'Estabilizantes (goma garrofín, goma guar)'],
                 alergenos: ['Gluten (Trigo)', 'Lácteos (Leche)', 'Soja', 'Sulfitos', 'Huevo', 'Frutos de cáscara (Pistacho)'],
                 trazas: ['Frutos de cáscara', 'Soja', 'Mostaza', 'Cacahuetes', 'otros frutos de cáscara']
             },
@@ -1172,7 +1176,7 @@
                 description: 'Elegancia en chocolate. Una tarta con capas de chocolate intenso y arándanos frescos. Sofisticación y sabor en cada bocado.',
                 tamanio: '20cm',
                 personas: '10-12',
-                peso: '1,6kg',
+                peso: '1,5kg',
                 ingredientes: ['Arándanos frescos', 'Azúcar', 'Pasta de cacao', 'Manteca de cacao', 'Emulgente (lecitina de soja)', 'Aroma natural de vainilla', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)'],
                 alergenos: ['Soja', 'Huevo', 'Lácteos (Leche)'],
                 trazas: ['Lácteos (Leche)']
@@ -1180,13 +1184,13 @@
             {
                 id: 6,
                 name: 'Baklava Artesanal',
-                price: 18,
+                price: 32,
                 image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Baklava%201.JPG',
                 images: ['https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Baklava%201.JPG'],
                 description: 'Capas crujientes de masa filo con pistachos pelados y miel. Un postre tradicional con ese toque artesanal que nos caracteriza.',
                 tamanio: 'Individual',
-                personas: '1-2',
-                peso: '150g',
+                personas: '8-10',
+                peso: '1kg',
                 ingredientes: ['Agua', 'Aroma de azahar', 'Azúcar', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Harina de trigo', 'Almidón de maíz', 'Sal', 'Conservador (sorbato potásico)', 'Agente de tratamiento de la harina (L-cisteína)', 'Pistachos pelados'],
                 alergenos: ['Lácteos (Leche)', 'Gluten (Trigo)', 'Frutos de cáscara (Pistacho)'],
                 trazas: ['Cacahuetes', 'otros frutos de cáscara']
@@ -1194,12 +1198,13 @@
         ];
 
         const faqs = [
-            { pregunta: '¿Cuál es el tiempo de entrega?', respuesta: 'Realizamos entregas en Madrid en 24-48 horas. Los pedidos se confirman por teléfono o WhatsApp.' },
+            { pregunta: '¿Se pueden programar los pedidos?', respuesta: 'Sí, se pueden programar los envíos para la fecha que quieras.' },
+            { pregunta: '¿Cuál es el tiempo de entrega?', respuesta: 'Realizamos entregas en Madrid en 24-48 horas.' },
             { pregunta: '¿Aceptáis pedidos personalizados?', respuesta: 'Sí, realizamos tartas completamente personalizadas. Contacta con nosotros con tu idea y presupuestamos.' },
             { pregunta: '¿Cuáles son vuestras opciones sin gluten?', respuesta: 'Todas nuestras tartas de queso pueden prepararse sin gluten. Avísanos en el pedido.' },
             { pregunta: '¿Cuánto tiempo antes necesito hacer el pedido?', respuesta: 'Recomendamos hacer pedidos con 48 horas de anticipación para garantizar disponibilidad.' },
-            { pregunta: '¿Hacéis entregas a domicilio?', respuesta: 'Sí, realizamos entregas a domicilio en Madrid. El envío está incluido en el precio.' },
-            { pregunta: '¿Qué métodos de pago aceptáis?', respuesta: 'Aceptamos transferencia bancaria, Bizum y en breve tarjeta de crédito.' }
+            { pregunta: '¿Hacéis entregas a domicilio?', respuesta: 'Sí, realizamos entregas a domicilio en Madrid.' },
+            { pregunta: '¿Qué métodos de pago aceptáis?', respuesta: 'Aceptamos transferencia bancaria, Bizum y Efectivo.' }
         ];
 
         let cart = [];
