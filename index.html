@@ -53,14 +53,24 @@
 
         header {
             background-color: var(--color-verde);
-            padding: 0.5rem 2%;
+            padding: 0.4rem 2%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            padding-top: 100px;
         }
 
         .logo-container {
-            height: 50px;
+            height: 60px;
             display: flex;
             align-items: center;
         }
@@ -68,41 +78,24 @@
         .logo-container img {
             height: 100%;
             object-fit: contain;
-            max-width: 300px;
+            max-width: 400px;
             filter: brightness(0) invert(1);
         }
 
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .user-button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            color: var(--color-fondo);
+        @media (max-width: 768px) {
+            .logo-container {
+                flex: 1;
+                justify-content: center;
+            }
         }
 
         .cart-button {
             background: none;
             border: none;
             cursor: pointer;
+            font-size: 28px;
             position: relative;
-            color: white;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cart-icon {
-            width: 24px;
-            height: 24px;
-            fill: white;
+            color: var(--color-fondo);
         }
 
         .cart-count {
@@ -135,7 +128,7 @@
             background: none;
             border: none;
             color: var(--color-fondo);
-            padding: 0.7rem 1.5rem;
+            padding: 0.9rem 1.5rem;
             font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
@@ -203,7 +196,7 @@
 
         .product-card:hover {
             border-color: var(--color-marron);
-            box-shadow: 0 4px 20px rgba(64, 52, 43, 0.15);
+            box-shadow: 0 4px 20px rgba(111, 93, 73, 0.15);
         }
 
         .product-image {
@@ -266,53 +259,19 @@
         }
 
         .add-btn {
-            background: var(--color-texto);
+            background: var(--color-verde);
             color: var(--color-fondo);
             border: none;
             padding: 0.8rem 1.2rem;
             font-size: 0.9rem;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: background 0.3s;
             flex: 1;
-            border-radius: 3px;
         }
 
         .add-btn:hover {
             background: var(--color-marron);
-        }
-
-        .add-btn.clicked {
-            background: var(--color-marron);
-            animation: pulse 0.6s ease;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .notification {
-            position: fixed;
-            top: 120px;
-            right: 20px;
-            background: var(--color-marron);
-            color: var(--color-fondo);
-            padding: 1rem 1.5rem;
-            border-radius: 4px;
-            font-weight: 600;
-            z-index: 2000;
-            animation: slideIn 0.3s ease, slideOut 0.3s ease 2s;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(400px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(400px); opacity: 0; }
         }
 
         .product-detail {
@@ -337,11 +296,6 @@
             object-fit: cover;
             border: 1px solid #E8E8E8;
             margin-bottom: 1rem;
-            cursor: pointer;
-        }
-
-        .main-image:hover {
-            opacity: 0.9;
         }
 
         .gallery-thumbs {
@@ -413,7 +367,7 @@
         }
 
         .btn-compra {
-            background: var(--color-marron);
+            background: var(--color-verde);
             color: var(--color-fondo);
             border: none;
             padding: 1.2rem 2.5rem;
@@ -423,7 +377,6 @@
             width: 100%;
             margin-bottom: 2rem;
             transition: background 0.3s;
-            border-radius: 3px;
         }
 
         .btn-compra:hover {
@@ -448,7 +401,7 @@
         }
 
         .tab-btn.activo {
-            background: var(--color-marron);
+            background: var(--color-verde);
             color: var(--color-fondo);
         }
 
@@ -534,7 +487,7 @@
         .config-label {
             display: block;
             font-weight: 600;
-            color: var(--color-marron);
+            color: var(--color-verde);
             margin-bottom: 0.8rem;
         }
 
@@ -551,7 +504,6 @@
             cursor: pointer;
             border-radius: 4px;
             transition: all 0.3s;
-            font-size: 0.95rem;
         }
 
         .config-option:hover {
@@ -559,33 +511,9 @@
         }
 
         .config-option.selected {
-            background: var(--color-marron);
-            color: var(--color-fondo);
-            border-color: var(--color-marron);
-        }
-
-        .btn-presupuesto {
-            background: var(--color-marron);
-            color: var(--color-fondo);
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            cursor: pointer;
-            font-weight: 700;
-            width: 100%;
-            border-radius: 4px;
-            transition: all 0.3s;
-            opacity: 0.5;
-            pointer-events: none;
-        }
-
-        .btn-presupuesto.activo {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .btn-presupuesto:hover:not(:disabled) {
             background: var(--color-verde);
+            color: var(--color-fondo);
+            border-color: var(--color-verde);
         }
 
         .personalizadas-galeria {
@@ -604,64 +532,11 @@
             object-fit: cover;
             border: 1px solid #E8E8E8;
             margin-bottom: 1rem;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        .personalizadas-foto img:hover {
-            opacity: 0.8;
         }
 
         .personalizadas-foto p {
             font-weight: 600;
             color: var(--color-marron);
-        }
-
-        .modal-imagen {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-imagen.activo {
-            display: flex;
-        }
-
-        .modal-imagen-content {
-            position: relative;
-            max-width: 85%;
-            max-height: 85vh;
-        }
-
-        .modal-imagen img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .modal-imagen-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: white;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #000;
         }
 
         .contacto-grid {
@@ -712,7 +587,7 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.7rem 1.2rem;
-            background: var(--color-marron);
+            background: var(--color-verde);
             color: var(--color-fondo);
             text-decoration: none;
             border-radius: 4px;
@@ -722,7 +597,7 @@
         }
 
         .red-social:hover {
-            background: var(--color-verde);
+            background: var(--color-marron);
         }
 
         .formulario-contacto {
@@ -767,11 +642,11 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--color-marron);
-            box-shadow: 0 0 0 2px rgba(64, 52, 43, 0.1);
+            box-shadow: 0 0 0 2px rgba(111, 93, 73, 0.1);
         }
 
         .btn-enviar {
-            background: var(--color-marron);
+            background: var(--color-verde);
             color: var(--color-fondo);
             border: none;
             padding: 1rem 2rem;
@@ -783,7 +658,7 @@
         }
 
         .btn-enviar:hover {
-            background: var(--color-verde);
+            background: var(--color-marron);
         }
 
         .faq-container {
@@ -799,7 +674,7 @@
         }
 
         .faq-pregunta {
-            background: var(--color-marron);
+            background: var(--color-verde);
             color: var(--color-fondo);
             padding: 1.5rem;
             cursor: pointer;
@@ -812,7 +687,7 @@
         }
 
         .faq-pregunta:hover {
-            background: var(--color-verde);
+            background: var(--color-marron);
         }
 
         .faq-icon {
@@ -868,10 +743,10 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            animation: slideIn2 0.3s ease;
+            animation: slideIn 0.3s ease;
         }
 
-        @keyframes slideIn2 {
+        @keyframes slideIn {
             from { transform: translateX(100%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
@@ -960,7 +835,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: var(--color-marron);
+            background: var(--color-verde);
             color: var(--color-fondo);
             padding: 1.5rem 2%;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
@@ -1053,17 +928,14 @@
 
     <header>
         <div class="logo-container">
-            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/06e5c4daab52367c7a84810f061e198bba9f1e9b/imagenes/Logotipo%20Panamb%C3%AD.svg" alt="Panambí Dulce">
+            <a href="#" onclick="irAInicio(); return false;" style="display: flex; align-items: center; height: 100%; text-decoration: none;">
+                <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/06e5c4daab52367c7a84810f061e198bba9f1e9b/imagenes/Logotipo%20Panamb%C3%AD.svg" alt="Panambí Dulce">
+            </a>
         </div>
-        <div class="header-right">
-            <button class="user-button" onclick="alert('Sistema de usuario próximamente')" title="Mi cuenta">👤</button>
-            <button class="cart-button" onclick="toggleCart()">
-                <svg class="cart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
-                </svg>
-                <span class="cart-count" id="cartCount" style="display: none;">0</span>
-            </button>
-        </div>
+        <button class="cart-button" onclick="toggleCart()">
+            🛒
+            <span class="cart-count" id="cartCount" style="display: none;">0</span>
+        </button>
     </header>
 
     <nav>
@@ -1074,6 +946,7 @@
     </nav>
 
     <div class="container">
+        <!-- SECCIÓN TARTAS -->
         <section id="tartas" class="seccion activa">
             <div class="hero">
                 <h1>Nuestras Tartas</h1>
@@ -1082,10 +955,12 @@
             <div class="products-grid" id="productsGrid"></div>
         </section>
 
+        <!-- SECCIÓN PRODUCTO INDIVIDUAL -->
         <section id="producto-detalle" class="seccion">
             <div id="detailContent"></div>
         </section>
 
+        <!-- SECCIÓN TARTAS PERSONALIZADAS -->
         <section id="personalizadas" class="seccion">
             <div class="hero">
                 <h1>Tartas Personalizadas</h1>
@@ -1097,12 +972,13 @@
                         <h2>Crea tu tarta</h2>
                         <p>En Panambí realizamos tartas personalizadas y al gusto de nuestros clientes con ingredientes de la máxima calidad.</p>
                         <p>Elige el tamaño, la forma de la tarta, el sabor del bizcocho interior, el relleno y la cobertura o acabado final. El precio final varía en función de la configuración elegida.</p>
+                        <p>Contacta con nosotros para conocer presupuesto exacto.</p>
                         <div class="configurador">
                             <div class="config-group">
                                 <label class="config-label">Tamaño</label>
                                 <div class="config-options">
-                                    <div class="config-option" onclick="selectConfig(this)">Pequeña (8-10)</div>
-                                    <div class="config-option" onclick="selectConfig(this)">Mediana (15)</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Pequeña (8-10 raciones)</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Mediana (15 raciones)</div>
                                 </div>
                             </div>
                             <div class="config-group">
@@ -1120,10 +996,10 @@
                             <div class="config-group">
                                 <label class="config-label">Relleno</label>
                                 <div class="config-options">
-                                    <div class="config-option" onclick="selectConfig(this)">Crema Limón</div>
-                                    <div class="config-option" onclick="selectConfig(this)">Dulce Leche</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Crema de Limón</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Dulce de Leche</div>
                                     <div class="config-option" onclick="selectConfig(this)">Nutella y Plátano</div>
-                                    <div class="config-option" onclick="selectConfig(this)">Ganache Blanco</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Ganache Chocolate Blanco</div>
                                     <div class="config-option" onclick="selectConfig(this)">Manzanas Asadas</div>
                                     <div class="config-option" onclick="selectConfig(this)">Cumquat Confitado</div>
                                 </div>
@@ -1131,8 +1007,8 @@
                             <div class="config-group">
                                 <label class="config-label">Cobertura</label>
                                 <div class="config-options">
-                                    <div class="config-option" onclick="selectConfig(this)">Crema Mantequilla</div>
-                                    <div class="config-option" onclick="selectConfig(this)">Fruta Temporada</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Crema de Mantequilla</div>
+                                    <div class="config-option" onclick="selectConfig(this)">Fruta de Temporada</div>
                                 </div>
                             </div>
                             <div class="config-group">
@@ -1142,23 +1018,27 @@
                                     <div class="config-option" onclick="selectConfig(this)">Dome</div>
                                 </div>
                             </div>
-                            <button class="btn-presupuesto" id="btnPresupuesto" onclick="solicitarPresupuesto()">Solicitar Presupuesto</button>
                         </div>
                     </div>
                     <div class="personalizadas-galeria">
                         <div class="personalizadas-foto">
-                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%201.jpg" alt="Tarta de Moras" onclick="abrirModal(this.src)">
-                            <p>Cobertura de Fruta: Moras</p>
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%201.jpg" alt="Tarta de Moras">
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%202.jpg" alt="Tarta de Moras">
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%203.jpg" alt="Tarta de Moras">
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%204.jpg" alt="Tarta de Moras">
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%205.jpg" alt="Tarta de Moras">
+                            <p>Forma Dome con Cobertura Moras</p>
                         </div>
                         <div class="personalizadas-foto">
-                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Flores%20Domo%201.jpg" alt="Tarta con Flores" onclick="abrirModal(this.src)">
-                            <p>Forma Dome con Decoración</p>
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Flores%20Domo%201.jpg" alt="Tarta con Flores">
+                            <p>Forma Dome con Decoración de Flores</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- SECCIÓN CONTACTO -->
         <section id="contacto" class="seccion">
             <div class="hero">
                 <h1>Contacto</h1>
@@ -1175,7 +1055,7 @@
 
                     <div class="contacto-item">
                         <h3>WhatsApp</h3>
-                        <a href="https://wa.me/34623057063" target="_blank">Escribenos en WhatsApp</a>
+                        <a href="https://wa.me/34623057063" target="_blank">623 057 063</a>
                     </div>
 
                     <div class="contacto-item">
@@ -1217,6 +1097,7 @@
             </div>
         </section>
 
+        <!-- SECCIÓN PREGUNTAS FRECUENTES -->
         <section id="faq" class="seccion">
             <div class="hero">
                 <h1>Preguntas Frecuentes</h1>
@@ -1231,6 +1112,7 @@
         <p style="margin-top: 0.5rem;">© 2025 Panambí Dulce - Pastelería Artesanal</p>
     </footer>
 
+    <!-- MODAL CARRITO -->
     <div class="modal" id="cartModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1248,13 +1130,7 @@
         </div>
     </div>
 
-    <div class="modal-imagen" id="modalImagen" onclick="cerrarModalImagen(event)">
-        <div class="modal-imagen-content">
-            <img id="imgModal" src="" alt="">
-            <button class="modal-imagen-close" onclick="cerrarModalImagen()">✕</button>
-        </div>
-    </div>
-
+    <!-- COOKIE CONSENT -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-text">
             Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra política de cookies.
@@ -1266,24 +1142,18 @@
     </div>
 
     <script>
+        // DATOS DE PRODUCTOS CON INGREDIENTES, ALÉRGENOS Y TRAZAS
         const products = [
             {
                 id: 1,
                 name: 'Tarta de Queso Clásica',
                 price: 25,
                 image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20clasica%201.JPG',
-                images: [
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20clasica%201.JPG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/b284353a214b92d4ffb676be64550af291d78003/imagenes/Tarta%20queso%20clasica%202.JPG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/b284353a214b92d4ffb676be64550af291d78003/imagenes/Tarta%20queso%20clasica%203.PNG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/b284353a214b92d4ffb676be64550af291d78003/imagenes/Tarta%20queso%20clasica%204.JPG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/b284353a214b92d4ffb676be64550af291d78003/imagenes/Tarta%20queso%20clasica%205.JPG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/b284353a214b92d4ffb676be64550af291d78003/imagenes/Tarta%20queso%20clasica%206.JPG'
-                ],
+                images: ['https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20clasica%201.JPG'],
                 description: 'Nuestra tarta de queso clásica es una delicia cremosa con base de galleta y vainilla. Perfecta para cualquier ocasión.',
                 tamanio: '20cm',
                 personas: '10-12',
-                peso: '1,6kg',
+                peso: '1,5kg',
                 ingredientes: ['Azúcar', 'Harina de trigo (gluten)', 'Aceite de girasol alto oléico 13%', 'Jarabe de glucosa', 'Aroma', 'Suero de leche en polvo', 'Gasificantes (carbonato ácido de sodio, carbonato de amonio)', 'Sal', 'Emulgente (lecitina de girasol)', 'Antioxidante (metabisulfito sódico)', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Almidón de maíz', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)', 'Leche entera pasteurizada', 'Estabilizantes (goma garrofín, goma guar)', 'Vanilla planifolia'],
                 alergenos: ['Gluten (Trigo)', 'Lácteos (Leche)', 'Soja', 'Sulfitos', 'Huevo'],
                 trazas: ['Frutos de cáscara', 'Soja', 'Mostaza']
@@ -1293,17 +1163,11 @@
                 name: 'Tarta de Queso y Avellana',
                 price: 25,
                 image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20avellana%201.JPG',
-                images: [
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20avellana%201.JPG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Tarta%20queso%20avellana%202.JPG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Tarta%20queso%20avellana%203.PNG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Tarta%20queso%20avellana%204.PNG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Tarta%20queso%20avellana%205.PNG'
-                ],
+                images: ['https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20avellana%201.JPG'],
                 description: 'Una combinación elegante de queso cremoso con avellanas peladas. Un toque sofisticado para tus celebraciones.',
                 tamanio: '20cm',
                 personas: '10-12',
-                peso: '1,6kg',
+                peso: '1,5kg',
                 ingredientes: ['Avellana repelada', 'Azúcar', 'Harina de trigo (gluten)', 'Aceite de girasol alto oléico 13%', 'Jarabe de glucosa', 'Aroma', 'Suero de leche en polvo', 'Gasificantes (carbonato ácido de sodio, carbonato de amonio)', 'Sal', 'Emulgente (lecitina de girasol)', 'Antioxidante (metabisulfito sódico)', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Almidón de maíz', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)', 'Leche entera pasteurizada', 'Nata'],
                 alergenos: ['Frutos de cáscara (Avellana)', 'Gluten (Trigo)', 'Lácteos (Leche)', 'Soja', 'Sulfitos', 'Huevo'],
                 trazas: ['Cacahuetes', 'otros frutos de cáscara', 'Soja', 'Mostaza']
@@ -1313,18 +1177,12 @@
                 name: 'Tarta de Queso y Pistacho',
                 price: 28,
                 image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20pistacho%201.PNG',
-                images: [
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20pistacho%201.PNG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Tarta%20queso%20pistacho%202.PNG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Tarta%20queso%20pistacho%203.PNG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Tarta%20queso%20pistacho%204.PNG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Tarta%20queso%20pistacho%205.PNG'
-                ],
+                images: ['https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20queso%20pistacho%201.PNG'],
                 description: 'Queso cremoso con pistachos pelados. Una tarta elegante y sofisticada con un sabor único.',
                 tamanio: '20cm',
                 personas: '10-12',
-                peso: '1,6kg',
-                ingredientes: ['Azúcar', 'Harina de trigo (gluten)', 'Aceite de girasol alto oléico 13%', 'Jarabe de glucosa', 'Aroma', 'Suero de leche en polvo', 'Gasificantes (carbonato ácido de sodio, carbonato de amonio)', 'Sal', 'Emulgente (lecitina de girasol)', 'Antioxidante (metabisulfito sódico)', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Almidón de maíz', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)', 'Pistachos pelados', 'Leche entera pasteurizada', 'Nata', 'Estabilizantes (goma garrofín, goma guar)'],
+                peso: '1,5kg',
+                ingredientes: ['Azúcar', 'Harina de trigo (gluten)', 'Aceite de girasol alto oléico 13%', 'Jarabe de glucosa', 'Aroma', 'Suero de leche en polvo', 'Gasificantes (carbonato ácido de sodio, carbonato de amonio)', 'Sal', 'Emulgente (lecitina de girasol)', 'Antioxidante (metabisulfito sódico)', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Almidón de maíz', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)', 'Pistachos', 'Leche entera pasteurizada', 'Nata', 'Estabilizantes (goma garrofín, goma guar)'],
                 alergenos: ['Gluten (Trigo)', 'Lácteos (Leche)', 'Soja', 'Sulfitos', 'Huevo', 'Frutos de cáscara (Pistacho)'],
                 trazas: ['Frutos de cáscara', 'Soja', 'Mostaza', 'Cacahuetes', 'otros frutos de cáscara']
             },
@@ -1333,15 +1191,11 @@
                 name: 'Tarta Marquesa',
                 price: 32,
                 image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20marquesa%201.PNG',
-                images: [
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20marquesa%201.PNG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Tarta%20marquesa%202.PNG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Tarta%20marquesa%203.PNG'
-                ],
+                images: ['https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Tarta%20marquesa%201.PNG'],
                 description: 'Elegancia en chocolate. Una tarta con capas de chocolate intenso y arándanos frescos. Sofisticación y sabor en cada bocado.',
                 tamanio: '20cm',
                 personas: '10-12',
-                peso: '1,6kg',
+                peso: '1,5kg',
                 ingredientes: ['Arándanos frescos', 'Azúcar', 'Pasta de cacao', 'Manteca de cacao', 'Emulgente (lecitina de soja)', 'Aroma natural de vainilla', 'Huevos frescos de gallina', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Estabilizantes (celulosa microcristalina, carboximetilcelulosa sódica, carragenanos)'],
                 alergenos: ['Soja', 'Huevo', 'Lácteos (Leche)'],
                 trazas: ['Lácteos (Leche)']
@@ -1349,19 +1203,13 @@
             {
                 id: 6,
                 name: 'Baklava Artesanal',
-                price: 18,
+                price: 32,
                 image: 'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Baklava%201.JPG',
-                images: [
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Baklava%201.JPG',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Baklava%202.jpg',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Baklava%203.jpg',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Baklava%204.jpg',
-                    'https://raw.githubusercontent.com/Panamabi/Panambi-Shop/975d9c11dc6c9318bc47102090445145fc5be171/imagenes/Baklava%205.jpg'
-                ],
+                images: ['https://raw.githubusercontent.com/Panamabi/Panambi-Shop/819f4b228aec84315e8c4ad2b1b5dd594744e6fb/imagenes/Baklava%201.JPG'],
                 description: 'Capas crujientes de masa filo con pistachos pelados y miel. Un postre tradicional con ese toque artesanal que nos caracteriza.',
                 tamanio: 'Individual',
-                personas: '1-2',
-                peso: '150g',
+                personas: '8-10',
+                peso: '1kg',
                 ingredientes: ['Agua', 'Aroma de azahar', 'Azúcar', 'Nata pasteurizada (leche)', 'Fermentos lácticos', 'Harina de trigo', 'Almidón de maíz', 'Sal', 'Conservador (sorbato potásico)', 'Agente de tratamiento de la harina (L-cisteína)', 'Pistachos pelados'],
                 alergenos: ['Lácteos (Leche)', 'Gluten (Trigo)', 'Frutos de cáscara (Pistacho)'],
                 trazas: ['Cacahuetes', 'otros frutos de cáscara']
@@ -1369,12 +1217,15 @@
         ];
 
         const faqs = [
-            { pregunta: '¿Cuál es el tiempo de entrega?', respuesta: 'Realizamos entregas en Madrid en 24-48 horas. Los pedidos se confirman por teléfono o WhatsApp.' },
+            { pregunta: '¿Se pueden programar los pedidos?', respuesta: 'Sí, se pueden programar los envíos para la fecha que quieras.' },
+            { pregunta: '¿Cuál es el tiempo de entrega?', respuesta: 'Realizamos entregas en Madrid en 24-48 horas.' },
             { pregunta: '¿Aceptáis pedidos personalizados?', respuesta: 'Sí, realizamos tartas completamente personalizadas. Contacta con nosotros con tu idea y presupuestamos.' },
             { pregunta: '¿Cuáles son vuestras opciones sin gluten?', respuesta: 'Todas nuestras tartas de queso pueden prepararse sin gluten. Avísanos en el pedido.' },
-            { pregunta: '¿Cuánto tiempo antes necesito hacer el pedido?', respuesta: 'Recomendamos hacer pedidos con 48 horas de anticipación para garantizar disponibilidad.' },
-            { pregunta: '¿Hacéis entregas a domicilio?', respuesta: 'Sí, realizamos entregas a domicilio en Madrid. El envío está incluido en el precio.' },
-            { pregunta: '¿Qué métodos de pago aceptáis?', respuesta: 'Aceptamos transferencia bancaria, Bizum y en breve tarjeta de crédito.' }
+            { pregunta: '¿Cuánto tiempo antes necesito hacer el pedido?', respuesta: 'Recomendamos hacer pedidos con 48 horas de antelación para garantizar disponibilidad.' },
+            { pregunta: '¿Se pueden recoger los pedidos en tienda?', respuesta: 'Sí, actualmente no disponemos de tienda de cara al público pero se pueden recoger en la Avenida Quinta de Madrid, código postal 28022.' },
+            { pregunta: '¿Hacéis entregas a domicilio?', respuesta: 'Sí, realizamos entregas a domicilio en la Comunidad de Madrid.' },
+            { pregunta: '¿Y si no tengo cubiertos o platos?', respuesta: 'Disponemos de un Kit de cucharitas y platos de madera, libre de plásticos, para que puedas disfrutar de tu tarta en cualquier lugar.' },
+            { pregunta: '¿Qué métodos de pago aceptáis?', respuesta: 'Aceptamos Transferencia Bancaria, Bizum y Efectivo.' }
         ];
 
         let cart = [];
@@ -1400,20 +1251,6 @@
                     <img src="${product.image}" alt="${product.name}" class="product-image">
                     <div class="product-content">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-specs">
-                            <div class="spec">
-                                <span class="spec-label">Tamaño</span>
-                                <span class="spec-value">${product.tamanio}</span>
-                            </div>
-                            <div class="spec">
-                                <span class="spec-label">Personas</span>
-                                <span class="spec-value">${product.personas}</span>
-                            </div>
-                            <div class="spec">
-                                <span class="spec-label">Peso</span>
-                                <span class="spec-value">${product.peso}</span>
-                            </div>
-                        </div>
                         <div class="product-footer">
                             <span class="product-price">${product.price}€</span>
                             <button class="add-btn" onclick="addToCart(event, ${product.id})">Añadir</button>
@@ -1432,7 +1269,7 @@
                 <div class="product-detail">
                     <div class="detail-header">
                         <div class="gallery-main">
-                            <img src="${product.images[0]}" alt="${product.name}" class="main-image" id="mainImage" onclick="abrirModal(this.src)">
+                            <img src="${product.images[0]}" alt="${product.name}" class="main-image" id="mainImage">
                             <div class="gallery-thumbs" id="thumbs">
                                 ${product.images.map((img, idx) => `
                                     <img src="${img}" alt="Thumbnail ${idx + 1}" class="thumb ${idx === 0 ? 'activo' : ''}" onclick="cambiarImagen('${img}', this)">
@@ -1533,16 +1370,6 @@
             element.classList.add('activo');
         }
 
-        function abrirModal(src) {
-            document.getElementById('imgModal').src = src;
-            document.getElementById('modalImagen').classList.add('activo');
-        }
-
-        function cerrarModalImagen(event) {
-            if (event && event.target.id !== 'modalImagen') return;
-            document.getElementById('modalImagen').classList.remove('activo');
-        }
-
         function mostrarTab(event, tabId) {
             event.target.parentElement.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('activo'));
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('activo'));
@@ -1553,47 +1380,6 @@
         function selectConfig(element) {
             element.parentElement.querySelectorAll('.config-option').forEach(opt => opt.classList.remove('selected'));
             element.classList.add('selected');
-            verificarPresupuesto();
-        }
-
-        function verificarPresupuesto() {
-            const grupos = document.querySelectorAll('.config-group');
-            let todosSeleccionados = true;
-            
-            grupos.forEach(grupo => {
-                const seleccionado = grupo.querySelector('.config-option.selected');
-                if (!seleccionado) todosSeleccionados = false;
-            });
-
-            const btnPresupuesto = document.getElementById('btnPresupuesto');
-            if (btnPresupuesto) {
-                if (todosSeleccionados) {
-                    btnPresupuesto.classList.add('activo');
-                } else {
-                    btnPresupuesto.classList.remove('activo');
-                }
-            }
-        }
-
-        function solicitarPresupuesto() {
-            const selecciones = [];
-            document.querySelectorAll('.config-group').forEach(grupo => {
-                const label = grupo.querySelector('.config-label').textContent;
-                const selected = grupo.querySelector('.config-option.selected');
-                if (selected) {
-                    selecciones.push(`${label}: ${selected.textContent}`);
-                }
-            });
-
-            const mensaje = `Solicitud de presupuesto de tarta personalizada:\n\n${selecciones.join('\n')}\n\nPor favor, contacta conmigo para confirmar el precio.`;
-            const email = prompt('Por favor, introduce tu email:', '');
-            
-            if (email) {
-                const subject = 'Solicitud de Presupuesto - Tarta Personalizada';
-                const body = `${mensaje}\n\nEmail del solicitante: ${email}`;
-                const mailtoLink = `mailto:panambi.dulce@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                window.location.href = mailtoLink;
-            }
         }
 
         function addToCart(event, productId) {
@@ -1607,16 +1393,6 @@
                 cart.push({ ...product, quantity: 1 });
             }
             
-            const btn = event.target;
-            btn.classList.add('clicked');
-            setTimeout(() => btn.classList.remove('clicked'), 600);
-
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.textContent = `${product.name} añadido al carrito`;
-            document.body.appendChild(notification);
-            setTimeout(() => notification.remove(), 2500);
-
             updateCart();
         }
 
