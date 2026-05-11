@@ -51,28 +51,33 @@
             100% { transform: translateX(-100%); }
         }
 
-        header {
-            background-color: var(--color-verde);
-            padding: 0.4rem 2%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .header-wrapper {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 999;
+            transition: transform 0.3s ease;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        body {
-            padding-top: 100px;
+        .header-wrapper.hidden {
+            transform: translateY(-100%);
+        }
+
+        header {
+            background-color: var(--color-verde);
+            padding: 0.3rem 2%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo-container {
-            height: 60px;
+            height: 70px;
             display: flex;
             align-items: center;
+            cursor: pointer;
         }
 
         .logo-container img {
@@ -82,20 +87,47 @@
             filter: brightness(0) invert(1);
         }
 
+        body {
+            padding-top: 0;
+        }
+
         @media (max-width: 768px) {
+            header {
+                position: relative;
+            }
             .logo-container {
                 flex: 1;
                 justify-content: center;
+                height: 50px;
+            }
+            .header-right {
+                position: absolute;
+                right: 2%;
             }
         }
 
-        .cart-button {
+        .cart-button, .user-button {
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 28px;
             position: relative;
-            color: var(--color-fondo);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+
+        .cart-icon, .user-icon {
+            width: 26px;
+            height: 26px;
+            fill: white;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .cart-count {
@@ -266,12 +298,51 @@
             font-size: 0.9rem;
             cursor: pointer;
             font-weight: 600;
-            transition: background 0.3s;
+            transition: all 0.3s;
             flex: 1;
+            position: relative;
         }
 
         .add-btn:hover {
             background: var(--color-marron);
+        }
+
+        .add-btn.clicked {
+            background: var(--color-marron);
+            animation: pulseClick 0.6s ease;
+        }
+
+        @keyframes pulseClick {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .product-footer {
+            position: relative;
+        }
+
+        .add-message {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: var(--color-marron);
+            color: var(--color-fondo);
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeMessage 2s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        @keyframes fadeMessage {
+            0% { opacity: 0; transform: translateY(-5px); }
+            15% { opacity: 1; transform: translateY(0); }
+            85% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-5px); }
         }
 
         .product-detail {
@@ -916,6 +987,113 @@
                 align-items: flex-start;
             }
         }
+
+        .btn-presupuesto {
+            background: var(--color-marron);
+            color: var(--color-fondo);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+            border-radius: 4px;
+            transition: all 0.3s;
+            opacity: 0.4;
+            pointer-events: none;
+            margin-top: 1.5rem;
+        }
+
+        .btn-presupuesto.activo {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .btn-presupuesto.activo:hover {
+            background: var(--color-verde);
+        }
+
+        .modal-imagen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-imagen.activo {
+            display: flex;
+        }
+
+        .modal-imagen-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-imagen img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .modal-imagen-close {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            z-index: 2001;
+        }
+
+        .modal-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            width: 60px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 2001;
+        }
+
+        .modal-nav:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .modal-nav.prev {
+            left: 20px;
+        }
+
+        .modal-nav.next {
+            right: 20px;
+        }
     </style>
 </head>
 <body>
@@ -926,16 +1104,24 @@
         </div>
     </div>
 
+    <div class="header-wrapper" id="headerWrapper">
     <header>
-        <div class="logo-container">
-            <a href="#" onclick="irAInicio(); return false;" style="display: flex; align-items: center; height: 100%; text-decoration: none;">
-                <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/06e5c4daab52367c7a84810f061e198bba9f1e9b/imagenes/Logotipo%20Panamb%C3%AD.svg" alt="Panambí Dulce">
-            </a>
+        <div class="logo-container" onclick="irAInicio()">
+            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/06e5c4daab52367c7a84810f061e198bba9f1e9b/imagenes/Logotipo%20Panamb%C3%AD.svg" alt="Panambí Dulce">
         </div>
-        <button class="cart-button" onclick="toggleCart()">
-            🛒
-            <span class="cart-count" id="cartCount" style="display: none;">0</span>
-        </button>
+        <div class="header-right">
+            <button class="user-button" onclick="alert('Sistema de login próximamente')" title="Mi cuenta">
+                <svg class="user-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </button>
+            <button class="cart-button" onclick="toggleCart()">
+                <svg class="cart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.17 14.75l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7.42c-.13 0-.25-.11-.25-.25z"/>
+                </svg>
+                <span class="cart-count" id="cartCount" style="display: none;">0</span>
+            </button>
+        </div>
     </header>
 
     <nav>
@@ -944,8 +1130,9 @@
         <button class="nav-btn" onclick="mostrarSeccion('contacto')">CONTACTO</button>
         <button class="nav-btn" onclick="mostrarSeccion('faq')">PREGUNTAS FRECUENTES</button>
     </nav>
+    </div>
 
-    <div class="container">
+    <div class="container" style="margin-top: 130px;">
         <!-- SECCIÓN TARTAS -->
         <section id="tartas" class="seccion activa">
             <div class="hero">
@@ -1018,11 +1205,12 @@
                                     <div class="config-option" onclick="selectConfig(this)">Dome</div>
                                 </div>
                             </div>
+                            <button class="btn-presupuesto" id="btnPresupuesto" onclick="solicitarPresupuesto()">Solicitar Presupuesto</button>
                         </div>
                     </div>
                     <div class="personalizadas-galeria">
                         <div class="personalizadas-foto">
-                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%201.jpg" alt="Tarta de Moras">
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%201.jpg" alt="Tarta de Moras" style="cursor: pointer;" onclick="abrirModalConGaleria([this.src], 0)">
                             <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%202.jpg" alt="Tarta de Moras">
                             <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%203.jpg" alt="Tarta de Moras">
                             <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Moras%204.jpg" alt="Tarta de Moras">
@@ -1030,7 +1218,7 @@
                             <p>Forma Dome con Cobertura Moras</p>
                         </div>
                         <div class="personalizadas-foto">
-                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Flores%20Domo%201.jpg" alt="Tarta con Flores">
+                            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/0f11824f6af1430f9affbf4e962a71e2cc651839/imagenes/Tartas%20Personalizadas/Flores%20Domo%201.jpg" alt="Tarta con Flores" style="cursor: pointer;" onclick="abrirModalConGaleria([this.src], 0)">
                             <p>Forma Dome con Decoración de Flores</p>
                         </div>
                     </div>
@@ -1269,10 +1457,10 @@
                 <div class="product-detail">
                     <div class="detail-header">
                         <div class="gallery-main">
-                            <img src="${product.images[0]}" alt="${product.name}" class="main-image" id="mainImage">
+                            <img src="${product.images[0]}" alt="${product.name}" class="main-image" id="mainImage" style="cursor: pointer;" data-images='${JSON.stringify(product.images)}' onclick="abrirModalConGaleria(JSON.parse(this.dataset.images), 0)">
                             <div class="gallery-thumbs" id="thumbs">
                                 ${product.images.map((img, idx) => `
-                                    <img src="${img}" alt="Thumbnail ${idx + 1}" class="thumb ${idx === 0 ? 'activo' : ''}" onclick="cambiarImagen('${img}', this)">
+                                    <img src="${img}" alt="Thumbnail ${idx + 1}" class="thumb ${idx === 0 ? 'activo' : ''}" onclick="cambiarImagen('${img}', this, ${idx})">
                                 `).join('')}
                             </div>
                         </div>
@@ -1364,10 +1552,11 @@
             window.scrollTo(0, 0);
         }
 
-        function cambiarImagen(src, element) {
+        function cambiarImagen(src, element, idx) {
             document.getElementById('mainImage').src = src;
             document.querySelectorAll('.thumb').forEach(thumb => thumb.classList.remove('activo'));
             element.classList.add('activo');
+            if (idx !== undefined) indiceFotoActual = idx;
         }
 
         function mostrarTab(event, tabId) {
@@ -1380,6 +1569,48 @@
         function selectConfig(element) {
             element.parentElement.querySelectorAll('.config-option').forEach(opt => opt.classList.remove('selected'));
             element.classList.add('selected');
+            verificarPresupuesto();
+        }
+
+        function verificarPresupuesto() {
+            const grupos = document.querySelectorAll('.config-group');
+            let todosSeleccionados = true;
+            
+            grupos.forEach(grupo => {
+                const seleccionado = grupo.querySelector('.config-option.selected');
+                if (!seleccionado) todosSeleccionados = false;
+            });
+
+            const btnPresupuesto = document.getElementById('btnPresupuesto');
+            if (btnPresupuesto) {
+                if (todosSeleccionados) {
+                    btnPresupuesto.classList.add('activo');
+                } else {
+                    btnPresupuesto.classList.remove('activo');
+                }
+            }
+        }
+
+        function solicitarPresupuesto() {
+            const selecciones = [];
+            document.querySelectorAll('.config-group').forEach(grupo => {
+                const label = grupo.querySelector('.config-label');
+                const selected = grupo.querySelector('.config-option.selected');
+                if (label && selected) {
+                    selecciones.push(`${label.textContent}: ${selected.textContent}`);
+                }
+            });
+
+            const email = prompt('Por favor, introduce tu email para que podamos contactarte:', '');
+            
+            if (email && email.includes('@')) {
+                const subject = 'Solicitud de Presupuesto - Tarta Personalizada';
+                const body = `Solicitud de presupuesto:\n\n${selecciones.join('\n')}\n\nEmail del solicitante: ${email}\n\nPor favor, contactadme para confirmar el precio.`;
+                const mailtoLink = `mailto:panambi.dulce@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = mailtoLink;
+            } else if (email) {
+                alert('Por favor introduce un email válido');
+            }
         }
 
         function addToCart(event, productId) {
@@ -1392,6 +1623,23 @@
             } else {
                 cart.push({ ...product, quantity: 1 });
             }
+            
+            // Animación botón
+            const btn = event.target;
+            btn.classList.add('clicked');
+            setTimeout(() => btn.classList.remove('clicked'), 600);
+            
+            // Mensaje debajo del botón
+            const parent = btn.parentElement;
+            // Quitar mensaje anterior si existe
+            const oldMsg = parent.querySelector('.add-message');
+            if (oldMsg) oldMsg.remove();
+            
+            const msg = document.createElement('div');
+            msg.className = 'add-message';
+            msg.textContent = 'Producto añadido';
+            parent.appendChild(msg);
+            setTimeout(() => msg.remove(), 2000);
             
             updateCart();
         }
@@ -1485,6 +1733,47 @@
             event.target.reset();
         }
 
+
+        function irAInicio() {
+            document.querySelectorAll('.seccion').forEach(sec => sec.classList.remove('activa'));
+            document.getElementById('tartas').classList.add('activa');
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('activo'));
+            const btnTartas = document.querySelector('.nav-btn');
+            if (btnTartas) btnTartas.classList.add('activo');
+            window.scrollTo(0, 0);
+        }
+
+        // Header auto-hide al scroll
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            const headerWrapper = document.getElementById('headerWrapper');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                headerWrapper.classList.add('hidden');
+            } else {
+                headerWrapper.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        // Variables modal de fotos
+        let fotosActuales = [];
+        let indiceFotoActual = 0;
+
+        function abrirModalConGaleria(fotos, indice) {
+            fotosActuales = fotos;
+            indiceFotoActual = indice;
+            document.getElementById('imgModal').src = fotos[indice];
+            document.getElementById('modalImagen').classList.add('activo');
+        }
+
+        function cambiarFotoModal(direccion) {
+            if (fotosActuales.length === 0) return;
+            indiceFotoActual = (indiceFotoActual + direccion + fotosActuales.length) % fotosActuales.length;
+            document.getElementById('imgModal').src = fotosActuales[indiceFotoActual];
+        }
+
         function mostrarCookies() {
             if (!localStorage.getItem('cookiesAceptadas')) {
                 document.getElementById('cookieBanner').classList.add('activa');
@@ -1501,5 +1790,15 @@
             document.getElementById('cookieBanner').classList.remove('activa');
         }
     </script>
+
+    <div class="modal-imagen" id="modalImagen" onclick="cerrarModalImagen(event)">
+        <button class="modal-nav prev" onclick="event.stopPropagation(); cambiarFotoModal(-1)">‹</button>
+        <div class="modal-imagen-content">
+            <img id="imgModal" src="" alt="">
+        </div>
+        <button class="modal-nav next" onclick="event.stopPropagation(); cambiarFotoModal(1)">›</button>
+        <button class="modal-imagen-close" onclick="cerrarModalImagen()">✕</button>
+    </div>
+
 </body>
 </html>
