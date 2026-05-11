@@ -67,15 +67,16 @@
 
         header {
             background-color: var(--color-verde);
-            padding: 0.8rem 2%;
+            padding: 0.5rem 2%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-height: 90px;
+            min-height: 100px;
+            gap: 1rem;
         }
 
         .logo-container {
-            height: 70px;
+            height: 90px;
             display: flex;
             align-items: center;
             cursor: pointer;
@@ -89,37 +90,91 @@
         }
 
         .logo-container img {
-            height: 70px;
+            height: 90px;
             width: auto;
             object-fit: contain;
-            max-width: 400px;
+            max-width: 500px;
             filter: brightness(0) invert(1);
             display: block;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            flex-wrap: wrap;
+        }
+
+        .header-nav button {
+            background: none;
+            border: none;
+            color: var(--color-fondo);
+            padding: 0.7rem 1rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .header-nav button:hover {
+            color: var(--color-marron);
+        }
+
+        .header-nav button.activo {
+            color: var(--color-marron);
+            border-bottom: 3px solid var(--color-marron);
         }
 
         body {
             padding-top: 0;
         }
 
+        @media (max-width: 1024px) {
+            .header-nav button {
+                font-size: 0.85rem;
+                padding: 0.5rem 0.7rem;
+            }
+            .logo-container, .logo-container img {
+                height: 70px;
+            }
+        }
+
         @media (max-width: 768px) {
             header {
-                position: relative;
-                min-height: 70px;
+                flex-wrap: wrap;
+                justify-content: center;
                 padding: 0.5rem 2%;
+                gap: 0.5rem;
+                min-height: auto;
             }
             .logo-container {
+                order: 1;
                 flex: 1;
                 justify-content: center;
-                height: 55px;
+                height: 60px;
             }
             .logo-container img {
-                height: 55px;
+                height: 60px;
             }
             .header-right {
-                position: absolute;
-                right: 2%;
-                top: 50%;
-                transform: translateY(-50%);
+                order: 2;
+            }
+            .header-nav {
+                order: 3;
+                width: 100%;
+                gap: 0;
+                border-top: 1px solid rgba(255,255,255,0.2);
+                padding-top: 0.5rem;
+            }
+            .header-nav button {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.5rem;
             }
         }
 
@@ -1366,42 +1421,40 @@
     </style>
 </head>
 <body>
-    <div class="banner-movimiento">
-        <div class="banner-contenido">
-            <span class="banner-texto">✨ Envíos en 24-48h • Tartas artesanales • Encargos personalizados ✨</span>
-            <span class="banner-texto">✨ Envíos en 24-48h • Tartas artesanales • Encargos personalizados ✨</span>
-        </div>
-    </div>
-
     <div class="header-wrapper" id="headerWrapper">
-    <header>
-        <div class="logo-container" onclick="irAInicio()">
-            <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/06e5c4daab52367c7a84810f061e198bba9f1e9b/imagenes/Logotipo%20Panamb%C3%AD.svg" alt="Panambí Dulce">
+        <div class="banner-movimiento">
+            <div class="banner-contenido">
+                <span class="banner-texto">✨ Envíos en 24-48h • Tartas artesanales • Encargos personalizados ✨</span>
+                <span class="banner-texto">✨ Envíos en 24-48h • Tartas artesanales • Encargos personalizados ✨</span>
+            </div>
         </div>
-        <div class="header-right">
-            <button class="user-button" onclick="abrirModalUsuario()" title="Mi cuenta">
-                <svg class="user-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
-            </button>
-            <button class="cart-button" onclick="toggleCart()">
-                <svg class="cart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.17 14.75l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7.42c-.13 0-.25-.11-.25-.25z"/>
-                </svg>
-                <span class="cart-count" id="cartCount" style="display: none;">0</span>
-            </button>
-        </div>
-    </header>
-
-    <nav>
-        <button class="nav-btn activo" onclick="mostrarSeccion('tartas')">TARTAS</button>
-        <button class="nav-btn" onclick="mostrarSeccion('personalizadas')">TARTAS PERSONALIZADAS</button>
-        <button class="nav-btn" onclick="mostrarSeccion('contacto')">CONTACTO</button>
-        <button class="nav-btn" onclick="mostrarSeccion('faq')">PREGUNTAS FRECUENTES</button>
-    </nav>
+        <header>
+            <div class="logo-container" onclick="irAInicio()">
+                <img src="https://raw.githubusercontent.com/Panamabi/Panambi-Shop/06e5c4daab52367c7a84810f061e198bba9f1e9b/imagenes/Logotipo%20Panamb%C3%AD.svg" alt="Panambí Dulce">
+            </div>
+            <div class="header-nav">
+                <button class="nav-btn activo" onclick="mostrarSeccion('tartas')">TARTAS</button>
+                <button class="nav-btn" onclick="mostrarSeccion('personalizadas')">TARTAS PERSONALIZADAS</button>
+                <button class="nav-btn" onclick="mostrarSeccion('contacto')">CONTACTO</button>
+                <button class="nav-btn" onclick="mostrarSeccion('faq')">PREGUNTAS FRECUENTES</button>
+            </div>
+            <div class="header-right">
+                <button class="user-button" onclick="abrirModalUsuario()" title="Mi cuenta">
+                    <svg class="user-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </button>
+                <button class="cart-button" onclick="toggleCart()">
+                    <svg class="cart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.17 14.75l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7.42c-.13 0-.25-.11-.25-.25z"/>
+                    </svg>
+                    <span class="cart-count" id="cartCount" style="display: none;">0</span>
+                </button>
+            </div>
+        </header>
     </div>
 
-    <div class="container" style="margin-top: 130px;">
+    <div class="container" style="margin-top: 170px;">
         <!-- SECCIÓN TARTAS -->
         <section id="tartas" class="seccion activa">
             <div class="hero">
@@ -2059,6 +2112,22 @@
         let fotosActuales = [];
         let indiceFotoActual = 0;
 
+
+        function cerrarModalImagen(event) {
+            if (event) {
+                if (event.target.classList && event.target.classList.contains('modal-imagen-close')) {
+                    document.getElementById('modalImagen').classList.remove('activo');
+                    return;
+                }
+                if (event.target.id === 'modalImagen') {
+                    document.getElementById('modalImagen').classList.remove('activo');
+                    return;
+                }
+                return;
+            }
+            document.getElementById('modalImagen').classList.remove('activo');
+        }
+
         function abrirModalConGaleria(fotos, indice) {
             fotosActuales = fotos;
             indiceFotoActual = indice;
@@ -2344,7 +2413,7 @@
             <img id="imgModal" src="" alt="">
         </div>
         <button class="modal-nav next" onclick="event.stopPropagation(); cambiarFotoModal(1)">›</button>
-        <button class="modal-imagen-close" onclick="cerrarModalImagen()">✕</button>
+        <button class="modal-imagen-close" onclick="event.stopPropagation(); cerrarModalImagen()">✕</button>
     </div>
 
 
